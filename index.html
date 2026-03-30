@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7/2~7/6 Okinawa沖繩🏝️</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Shippori+Mincho:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  /* 沖繩海洋色系 Ocean / Teal Theme */
+  --ink: #112A46;         /* 深海藍 Navy */
+  --paper: #F4F9F9;       /* 海風白 Off-white */
+  --paper2: #E0F2F1;      /* 淺湖水綠 Light Teal */
+  --red: #0277BD;         /* 海洋藍 Ocean Blue (取代原本的紅) */
+  --gold: #00838F;        /* 深湖水綠 Deep Cyan (取代原本的金) */
+  --orange: #00695C;      /* 墨綠 Teal (取代原本的橘) */
+  --stamp-red: rgba(2, 119, 189, 0.85);
+  --timeline-line: rgba(0, 131, 143, 0.25);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Paper texture - 輕微紙張紋理 */
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: -1;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative; min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; padding: 60px 20px 80px;
+  text-align: center; overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 40%, rgba(2, 119, 189, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 70%, rgba(0, 131, 143, 0.08) 0%, transparent 60%),
+    var(--paper2);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0, 131, 143, 0.05) 39px, rgba(0, 131, 143, 0.05) 40px);
+  pointer-events: none;
+}
+.jp-deco {
+  position: absolute; font-family: 'Shippori Mincho', serif;
+  font-size: 8rem; font-weight: 700; opacity: 0.04; user-select: none; pointer-events: none; line-height: 1;
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.hero-eyebrow {
+  font-family: 'Shippori Mincho', serif; font-size: 0.85rem;
+  letter-spacing: 0.35em; color: var(--gold); margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Zen Maru Gothic', sans-serif; font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 900; line-height: 1.15; color: var(--ink); letter-spacing: -0.01em; display: inline-block;
+}
+.hero-title span { color: var(--red); }
+.hero-sub {
+  font-family: 'Shippori Mincho', serif; font-size: clamp(1rem, 3vw, 1.3rem);
+  color: var(--orange); margin-top: 18px; letter-spacing: 0.1em;
+}
+.hero-dates {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 10px 28px;
+  border: 1.5px solid var(--gold); border-radius: 2px; font-family: 'Shippori Mincho', serif;
+  font-size: 1rem; letter-spacing: 0.2em; color: var(--gold); background: rgba(0, 131, 143, 0.06);
+}
+.scroll-hint {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  font-size: 0.65rem; letter-spacing: 0.25em; color: rgba(17, 42, 70, 0.4);
+  animation: bobble 2s ease-in-out infinite; pointer-events: none;
+}
+@keyframes bobble {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%     { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── NAV ── */
+.nav-wrap {
+  position: sticky; top: 0; z-index: 200; background: rgba(244, 249, 249, 0.95);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1.5px solid rgba(0, 131, 143, 0.18);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto;
+  scrollbar-width: none; -ms-overflow-style: none; padding: 0 16px;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item {
+  flex-shrink: 0; padding: 15px 18px; font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; color: rgba(17, 42, 70, 0.45);
+  text-decoration: none; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap; cursor: pointer; user-select: none;
+}
+.nav-item:hover { color: rgba(17, 42, 70, 0.8); border-bottom-color: rgba(0, 131, 143, 0.3); }
+.nav-item.active { color: var(--red); border-bottom-color: var(--red); }
+.day-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+
+/* ── MAIN ── */
+.main { max-width: 1000px; margin: 0 auto; padding: 48px 20px 120px; }
+
+/* ── DAY SECTION ── */
+.day-section { margin-bottom: 100px; scroll-margin-top: 60px; }
+.day-header {
+  display: flex; align-items: flex-start; gap: 20px; margin-bottom: 24px;
+  padding-bottom: 20px; border-bottom: 1px dashed rgba(0, 131, 143, 0.28); flex-wrap: wrap;
+}
+.day-badge {
+  flex-shrink: 0; width: 68px; height: 68px; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: 'Zen Maru Gothic', sans-serif; font-weight: 900; color: white;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.day-badge .dn { font-size: 1.4rem; line-height: 1; }
+.day-badge .dl { font-size: 0.5rem; letter-spacing: 0.1em; margin-top: 2px; }
+.day-meta { flex: 1; min-width: 200px; }
+.day-title { font-family: 'Zen Maru Gothic', sans-serif; font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight: 900; line-height: 1.2; margin-bottom: 6px; }
+.day-subtitle { font-family: 'Shippori Mincho', serif; font-size: 0.87rem; color: rgba(17, 42, 70, 0.6); line-height: 1.65; }
+
+/* ── TIMELINE (行程表) ── */
+.timeline-wrap {
+  position: relative; margin: 30px 0 40px; padding: 25px 20px 25px 30px;
+  background: white; border-radius: 8px; border: 1px solid rgba(0, 131, 143, 0.15);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.03); overflow: hidden;
+}
+.timeline-bg {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(circle at 100% 0%, rgba(2, 119, 189, 0.04) 0%, transparent 50%),
+              radial-gradient(circle at 0% 100%, rgba(0, 105, 92, 0.04) 0%, transparent 50%);
+}
+.timeline-header { position: relative; z-index: 1; font-family: 'Zen Maru Gothic', sans-serif; font-size: 1.1rem; font-weight: 900; color: var(--ink); margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+.timeline-list { position: relative; z-index: 1; padding-left: 10px; }
+.timeline-item {
+  position: relative; padding-left: 36px; margin-bottom: 26px;
+  opacity: 0; transform: translateX(-20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.timeline-item.in-view { opacity: 1; transform: translateX(0); }
+.timeline-item::before {
+  content: ''; position: absolute; left: 15px; top: 32px; bottom: -30px; width: 2px;
+  background: var(--timeline-line); border-radius: 2px;
+}
+.timeline-item:last-child::before { display: none; }
+.timeline-icon {
+  position: absolute; left: 0; top: 0; width: 32px; height: 32px; background: white;
+  border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; font-size: 0.9rem; z-index: 2; box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.timeline-item:hover .timeline-icon { transform: scale(1.15); border-color: var(--orange); }
+.timeline-content {
+  background: var(--paper); padding: 16px 20px; border-radius: 6px;
+  border: 1px solid rgba(0, 131, 143, 0.1); transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline-item:hover .timeline-content {
+  transform: translateY(-3px); background: #ffffff;
+  box-shadow: 0 6px 20px rgba(2, 119, 189, 0.08); border-color: rgba(2, 119, 189, 0.2);
+}
+.timeline-time {
+  font-family: 'JetBrains Mono', monospace, sans-serif; font-size: 0.8rem;
+  color: var(--orange); margin-bottom: 6px; font-weight: 700; letter-spacing: 0.05em;
+}
+.timeline-time span { font-size: 0.8em; color: rgba(17, 42, 70, 0.5); font-family: 'Noto Sans TC', sans-serif; font-weight: 500; }
+.timeline-text { font-family: 'Noto Sans TC', sans-serif; font-weight: 700; color: var(--ink); font-size: 0.95rem; margin-bottom: 8px; line-height: 1.5; }
+.timeline-map-btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px;
+  background: rgba(0, 131, 143, 0.08); color: var(--ink); border-radius: 4px;
+  font-size: 0.72rem; text-decoration: none; font-weight: bold; font-family: 'Zen Maru Gothic', sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+.timeline-map-btn:hover { background: var(--ink); color: white; }
+
+/* ── GRID & CARDS (無圖純文字版) ── */
+.restaurant-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+.card {
+  background: white; border-radius: 6px; padding: 24px 22px 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.04);
+  position: relative; display: flex; flex-direction: column; isolation: isolate;
+  opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease;
+}
+.card.in-view { opacity: 1; transform: translateY(0); }
+.card:hover { box-shadow: 0 12px 30px rgba(2, 119, 189, 0.08); transform: translateY(-4px); z-index: 10; }
+
+/* Washi tape decoration */
+.card::before {
+  content: ''; position: absolute; top: -8px; left: 50%;
+  transform: translateX(-50%) rotate(var(--tape-angle,-2deg)); width: 60px; height: 18px;
+  background: var(--tape-color, rgba(135,206,235,0.75)); border-radius: 1px; z-index: 3; pointer-events: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.card-header-left { flex: 1; padding-right: 10px; }
+.card-area { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.card-name { font-family: 'Zen Maru Gothic', sans-serif; font-size: 1.15rem; font-weight: 900; line-height: 1.35; color: var(--ink); margin-bottom: 4px; }
+.card-type { font-family: 'Shippori Mincho', serif; font-size: 0.75rem; color: rgba(17, 42, 70, 0.6); }
+.card-score {
+  background: rgba(244, 249, 249, 0.8); border-radius: 20px; padding: 4px 10px;
+  font-family: 'Zen Maru Gothic', sans-serif; font-size: 0.8rem; font-weight: 900;
+  color: var(--ink); display: flex; align-items: center; gap: 4px; border: 1px solid rgba(0, 131, 143, 0.15); flex-shrink: 0;
+}
+.card-score .s { color: #f39c12; font-size: 0.7rem; }
+.card-desc { font-size: 0.85rem; line-height: 1.7; color: rgba(17, 42, 70, 0.75); margin-bottom: 16px; font-family: 'Shippori Mincho', serif; flex: 1; }
+
+/* 推薦必點區塊 */
+.card-recommend {
+  background: rgba(244, 249, 249, 0.6); border-left: 3px solid var(--rc-color, var(--orange));
+  padding: 10px 14px; margin-bottom: 18px; border-radius: 0 4px 4px 0; font-size: 0.8rem; line-height: 1.5; color: var(--ink);
+}
+.rc-title { font-family: 'Zen Maru Gothic', sans-serif; font-size: 0.7rem; font-weight: 900; color: var(--rc-color, var(--orange)); margin-bottom: 4px; letter-spacing: 0.05em; }
+
+/* 地圖按鈕 */
+.btn-map {
+  display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px;
+  background: var(--paper2); color: var(--ink); border: 1px solid rgba(0, 131, 143, 0.2);
+  border-radius: 4px; font-size: 0.8rem; font-weight: 700; font-family: 'Zen Maru Gothic', sans-serif;
+  text-decoration: none; transition: all 0.2s; width: 100%; cursor: pointer;
+}
+.btn-map:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+/* ── FOOTER & BTT ── */
+footer { text-align: center; padding: 36px 20px 56px; font-family: 'Shippori Mincho', serif; color: rgba(17, 42, 70, 0.5); font-size: 0.87rem; border-top: 1px dashed rgba(0, 131, 143, 0.2); }
+footer strong { display: block; font-family: 'Zen Maru Gothic', sans-serif; font-size: 1.05rem; font-weight: 700; color: rgba(17, 42, 70, 0.8); margin-bottom: 5px; }
+#btt {
+  position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px;
+  background: var(--ink); color: white; border: none; border-radius: 4px;
+  cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(12px); transition: all 0.3s; z-index: 300; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+#btt.show { opacity: 1; transform: translateY(0); }
+#btt:hover { background: var(--red); transform: translateY(-3px); }
+
+@media (max-width: 600px) {
+  .hero-title { font-size: 2.5rem; }
+  .restaurant-grid { grid-template-columns: 1fr; }
+  .timeline-wrap { padding: 20px 15px; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">✈ Okinawa Summer Escape</p>
+    <h1 class="hero-title">7/2~7/6<br>Okinawa<span>沖繩</span>🏝️</h1>
+    <p class="hero-sub">おきなわの旅 · 夏日海島紀行</p>
+    <div class="hero-dates"><i class="fas fa-calendar-days"></i> 2026年07月02日（四）→ 07月06日（一）</div>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<nav class="nav-wrap">
+  <div class="nav-inner">
+    <a class="nav-item active" href="#day1" data-day="day1"><span class="day-dot" style="background:#0277bd"></span>7/2 抵達那霸</a>
+    <a class="nav-item" href="#day2" data-day="day2"><span class="day-dot" style="background:#00838f"></span>7/3 美國村</a>
+    <a class="nav-item" href="#day3" data-day="day3"><span class="day-dot" style="background:#00695c"></span>7/4 許田・古宇利島</a>
+    <a class="nav-item" href="#day4" data-day="day4"><span class="day-dot" style="background:#283593"></span>7/5 玉泉洞</a>
+    <a class="nav-item" href="#day5" data-day="day5"><span class="day-dot" style="background:#1565c0"></span>7/6 賦歸</a>
+  </div>
+</nav>
+
+<main class="main" id="mainEl"></main>
+
+<footer>
+  <strong>祝您有一趟充滿陽光與笑聲的沖繩之旅 🏝️</strong>
+  保持彈性才是最棒的旅行方式 · めんそーれ 沖縄
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+/* ═══ DATA ═══ */
+const DAY_COLORS = { day1:'#0277bd', day2:'#00838f', day3:'#00695c', day4:'#283593', day5:'#1565c0' };
+
+const DAYS = [
+  {
+    id:'day1', num:'01', date:'7月2日',
+    title:'啟程與抵達那霸', 
+    subtitle:'出發前往度假天堂沖繩！辦理完飯店入住後，在國際通周邊感受第一晚的南國熱情。',
+    itinerary: [
+      { time: '16:15', text: '高雄國際機場 <span>(停留 03時30分)</span>', icon: '🛫', map: '高雄國際機場' },
+      { time: '18:40', text: '那霸機場 <span>(抵達辦理入境手續，停留 -18時-40分)</span>', icon: '🛬', map: '那霸機場' },
+      { time: '00:32', text: '那霸STRATA酒店 <span>(入住 Check-in，停留 01時00分)</span>', icon: '🏨', map: 'Hotel Strata Naha' },
+      { time: '01:32', text: '那霸STRATA酒店 <span>(夜間休息，停留 01時00分)</span>', icon: '🌙', map: 'Hotel Strata Naha' }
+    ],
+    places:[
+      {name:'傑克牛排館 (Jack\'s Steak House)',area:'那霸・旭橋',rating:4.4,type:'美式老牌牛排',desc:'沖繩牛排文化的經典代表！充滿濃濃的昭和復古美式風情，深受在地人與觀光客喜愛。',recommend:'🥩 必點：特選烤牛排 (Tenderloin Steak)',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'豬肉蛋飯糰 牧志市場本店',area:'那霸・國際通',rating:4.4,type:'沖繩飯糰',desc:'來沖繩絕對不能錯過的國民美食，現點現做，熱呼呼的午餐肉與厚煎蛋完美結合。',recommend:'🍙 必點：炸蝦豬肉蛋飯糰、苦瓜天婦羅口味',tape:'rgba(135,206,235,0.72)',angle:'2deg'},
+      {name:'ゆうなんぎい (Yunangi)',area:'那霸・國際通',rating:4.3,type:'沖繩鄉土料理',desc:'開業超過50年的老字號居酒屋，想品嚐最道地的沖繩家常菜（如炒苦瓜、墨魚湯）來這裡準沒錯。',recommend:'🥢 必點：沖繩炒苦瓜、東坡肉 (Rafute)',tape:'rgba(176,224,230,0.72)',angle:'-1deg'},
+      {name:'牛排屋 88 國際通店',area:'那霸・國際通',rating:4.2,type:'鐵板牛排',desc:'沖繩到處可見的知名連鎖牛排店，提供多種部位選擇，隨時都能享受大口吃肉的快感。',recommend:'🥩 必點：88特選紐約客牛排',tape:'rgba(152,251,152,0.72)',angle:'3deg'},
+      {name:'大東麵 (Daito Soba)',area:'那霸・牧志',rating:4.2,type:'沖繩麵',desc:'麵條極具嚼勁，湯頭清澈甘甜，搭配軟嫩的爌肉，是許多人心中那霸市區第一名的沖繩麵。',recommend:'🍜 必點：大東沖繩麵、大東壽司(醬油醃製魚肉)',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'Zooton\'s 久茂地店',area:'那霸・久茂地',rating:4.4,type:'手工漢堡',desc:'隱藏在巷弄中的超高評價漢堡店！手打漢堡排多汁，搭配自家製的酪梨醬堪稱絕配。',recommend:'🍔 必點：自製酪梨起司漢堡',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
+      {name:'第一牧志公設市場',area:'那霸・國際通',rating:4.1,type:'海鮮市場',desc:'被稱為「沖繩的廚房」，一樓挑選新鮮海產，二樓代客料理，體驗在地市場的活力。',recommend:'🦞 必點：夜光貝生魚片、龍蝦二吃',tape:'rgba(176,224,230,0.72)',angle:'-2deg'},
+      {name:'Ball Donut Park',area:'那霸・國際通',rating:4.3,type:'球型甜甜圈',desc:'現炸的小巧球型甜甜圈，外酥內Ｑ，淋上檸檬汁與糖粉，清爽不甜膩的散步甜點。',recommend:'🍩 必點：檸檬糖霜甜甜圈',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
+      {name:'Kurtos Kalacs',area:'那霸・國際通',rating:4.5,type:'煙囪捲',desc:'沖繩少見的東歐傳統甜點煙囪捲，現烤出爐香氣四溢，外皮焦糖酥脆。',recommend:'🥐 必點：肉桂煙囪捲、冰淇淋煙囪捲',tape:'rgba(173,216,230,0.72)',angle:'-1deg'},
+      {name:'Blue Seal 國際通店',area:'那霸・國際通',rating:4.2,type:'冰淇淋',desc:'「出生於美國，成長於沖繩」的標誌性冰淇淋，多種沖繩在地限定口味。',recommend:'🍦 必點：鹽金楚糕口味、紅芋口味',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
+      {name:'C&C Breakfast Okinawa',area:'那霸・牧志',rating:4.2,type:'夏威夷早午餐',desc:'以「旅途中的美味早餐」為概念，提供舒芙蕾鬆餅與巴西莓果碗，深受女性歡迎。',recommend:'🥞 必點：夏威夷堅果醬舒芙蕾鬆餅',tape:'rgba(176,224,230,0.72)',angle:'-3deg'},
+      {name:'Fukugiya 年輪蛋糕',area:'那霸・國際通',rating:4.2,type:'現烤年輪蛋糕',desc:'走在國際通一定會被它的現烤香氣吸引。使用沖繩黑糖與紅芋製作，伴手禮絕佳選擇。',recommend:'🍰 必點：黑糖年輪蛋糕 (ガジュマル)',tape:'rgba(175,238,238,0.72)',angle:'1deg'},
+      {name:'Calbee+ 沖繩國際通店',area:'那霸・國際通',rating:4.3,type:'現炸洋芋片',desc:'可以吃到剛起鍋、熱騰騰的現炸洋芋片與薯條，還有沖繩限定口味。',recommend:'🍟 必點：現炸紅芋薯條佐冰淇淋',tape:'rgba(152,251,152,0.72)',angle:'-2deg'},
+      {name:'琉貿百貨 (RYUBO) 地下美食街',area:'那霸・縣廳前',rating:4.1,type:'百貨美食',desc:'那霸市區唯一的百貨公司，地下街有非常多精緻的熟食、炸物與便當，適合帶回飯店享用。',recommend:'🍱 必點：沖繩和牛便當、各類精緻惣菜',tape:'rgba(173,216,230,0.72)',angle:'2deg'},
+      {name:'暖暮拉麵 那霸牧志店',area:'那霸・國際通',rating:4.0,type:'豚骨拉麵',desc:'曾擊敗一蘭的九州拉麵名店，在沖繩極受台灣旅客歡迎，經常大排長龍。',recommend:'🍜 必點：烈火拉麵、半熟蛋芝麻蔥拉麵',tape:'rgba(135,206,235,0.72)',angle:'-1deg'},
+      {name:'Jef Burger 壺屋店',area:'那霸・壺屋',rating:4.1,type:'沖繩限定速食',desc:'沖繩才有的在地速食店！招牌是將沖繩苦瓜融入漢堡中，充滿神奇的在地滋味。',recommend:'🍔 必點：苦瓜烘蛋漢堡 (Nuuyal Burger)',tape:'rgba(176,224,230,0.72)',angle:'3deg'},
+      {name:'壺屋陶器街 (Yachimun Street) 咖啡',area:'那霸・壺屋',rating:4.4,type:'質感咖啡',desc:'漫步在充滿傳統陶器的石板路上，這裡隱藏著許多使用精美陶器盛裝飲品的靜謐咖啡館。',recommend:'☕ 必點：手沖咖啡、沖繩陶器冰淇淋',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'國際通屋台村',area:'那霸・國際通',rating:4.0,type:'屋台聚落',desc:'聚集了二十多間特色小店的露天美食街，氣氛熱絡，是夜晚喝酒吃宵夜的好去處。',recommend:'🏮 必點：串燒、沖繩Orion生啤酒',tape:'rgba(152,251,152,0.72)',angle:'1deg'},
+      {name:'三笠食堂 (Mikasa)',area:'那霸・松山',rating:4.0,type:'24小時家庭餐廳',desc:'在地人愛去的老牌平價食堂，全天候營業，提供大份量且道地的沖繩家庭料理。',recommend:'🍛 必點：沖繩肉絲炒麵線、奶油烤魚',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'黑糖可麗露 ほうき星 (Houkiboshi)',area:'那霸・新都心',rating:4.4,type:'精緻甜點',desc:'沖繩第一家可麗露專賣店，使用多良間島黑糖製作，外觀極度精美，被譽為必買神級甜點。',recommend:'🍮 必點：沖繩黑糖可麗露綜合禮盒',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+    ]
+  },
+  {
+    id:'day2', num:'02', date:'7月3日',
+    title:'漫步美國村',
+    subtitle:'早上悠閒出發，整天沉浸在充滿異國風情的美國村，享受海景咖啡、購物與絕美夕陽。',
+    itinerary: [
+      { time: '08:00', text: '那霸STRATA酒店 <span>(出發，停留 01時00分)</span>', icon: '☀️', map: 'Hotel Strata Naha' },
+      { time: '09:36', text: '美國村 <span>(停留 01時00分，建議可延長停留至傍晚看夕陽)</span>', icon: '🎡', map: '美浜美國村' }
+    ],
+    places:[
+      {name:'Taco Rice Cafe Kijimuna',area:'北谷・美國村',rating:4.4,type:'塔可飯',desc:'將沖繩代表美食「塔可飯」加上滑嫩歐姆蛋，創造出超人氣的「歐姆塔可飯」，美味度大升級！',recommend:'🍛 必點：酪梨歐姆塔可飯',tape:'rgba(135,206,235,0.72)',angle:'-2deg'},
+      {name:'Zhyvago Coffee Works',area:'北谷・美國村',rating:4.6,type:'海景咖啡',desc:'美國村最具質感的工業風咖啡館。坐在窗邊或戶外，伴隨一杯好咖啡與無敵海景，極致放鬆。',recommend:'☕ 必點：冰拿鐵、手工巧克力軟餅乾',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
+      {name:'Seaside Cafe Hanon',area:'北谷・美國村',rating:4.4,type:'海景鬆餅',desc:'以純白希臘風格打造的鬆餅專賣店，陽台座位直面大海，鬆餅口感蓬鬆綿密。',recommend:'🥞 必點：焦糖香蕉舒芙蕾鬆餅',tape:'rgba(176,224,230,0.72)',angle:'-1deg'},
+      {name:'Vongo & Anchor',area:'北谷・美國村',rating:4.5,type:'早午餐・咖啡',desc:'與Zhyvago同體系的質感愛店，提供豐盛的西式早午餐盤，室內裝潢充滿波特蘭風格。',recommend:'🥙 必點：美式豐盛早午餐盤、三明治',tape:'rgba(173,216,230,0.72)',angle:'3deg'},
+      {name:'琉球之牛 (琉球の牛) 北谷店',area:'北谷・美國村',rating:4.4,type:'頂級燒肉',desc:'沖繩極具代表性的高級燒肉店！油花分佈完美的頂級縣產和牛，入口即化，建議提前訂位。',recommend:'🥩 必點：頂級縣產和牛套餐、炙燒和牛壽司',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'Blue Seal 北谷店',area:'北谷・美國村',rating:4.3,type:'美式冰淇淋',desc:'美國村旁的大型Blue Seal旗艦店，帶有濃厚的50年代美式復古風格，是拍照打卡聖地。',recommend:'🍦 必點：香草與紅芋綜合霜淇淋',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
+      {name:'Pork Tamago Onigiri 北谷店',area:'北谷・美國村',rating:4.3,type:'沖繩飯糰',desc:'如果在那霸沒吃到，美國村也有分店！就在海灘旁，買個飯糰坐在消波塊上看海最對味。',recommend:'🍙 必點：北谷店限定炸豬排飯糰',tape:'rgba(152,251,152,0.72)',angle:'-2deg'},
+      {name:'Timeless Chocolate',area:'北谷・美國村',rating:4.5,type:'精品巧克力',desc:'沖繩第一家「Bean to Bar」巧克力專賣店，巧妙將沖繩黑糖與純可可結合，甜點極具水準。',recommend:'🍫 必點：黑糖單品巧克力、特濃熱可可',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
+      {name:'牛排屋 88 北谷店',area:'北谷・美國村',rating:4.1,type:'鐵板牛排',desc:'在充滿美軍文化底蘊的北谷吃一頓滋滋作響的鐵板牛排，是最接地氣的晚餐選擇。',recommend:'🥩 必點：大蒜奶油肋眼牛排',tape:'rgba(173,216,230,0.72)',angle:'-1deg'},
+      {name:'Chataro (茶太郎)',area:'北谷・美國村',rating:4.2,type:'沖繩海景洋食',desc:'位於海濱步道旁，氣氛輕鬆悠閒，提供豐富的洋食與熱帶調酒，夕陽時分景色無敵。',recommend:'🍹 必點：熱帶水果冰沙、炸魚薯條',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
+      {name:'Benson\'s Hotdog',area:'北谷・美國村',rating:4.3,type:'美式熱狗堡',desc:'使用百分之百全牛肉香腸的道地美式熱狗堡，淋上滿滿的起司與肉醬，邪惡度滿分。',recommend:'🌭 必點：加州起司肉醬熱狗堡',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'The Calif Kitchen',area:'北谷・美國村',rating:4.4,type:'加州風海景餐廳',desc:'純白明亮的加州海岸風格裝潢，餐點顏值極高且美味，帶著小孩也非常適合前往的親子友善餐廳。',recommend:'🌯 必點：墨西哥捲餅、夏威夷蒜香蝦',tape:'rgba(152,251,152,0.72)',angle:'1deg'},
+      {name:'Hold By Hand Okinawa',area:'北谷・美國村',rating:4.3,type:'炸薯條與軟餅乾',desc:'專賣現炸美式粗薯條與巨大軟餅乾的小店，包裝極具設計感，適合邊走邊吃。',recommend:'🍟 必點：多種沾醬炸薯條、巧克力軟餅乾',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'A&W 北谷店',area:'北谷',rating:4.1,type:'美式連鎖速食',desc:'沖繩獨有的美式速食品牌。最具特色的麥根沙士 (Root Beer) 在店內可以無限續杯！',recommend:'🍔 必點：A&W雙層起司堡、麥根沙士、圈圈薯',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
+      {name:'浜屋沖繩麵 (Hamaya)',area:'北谷・宮城海岸',rating:4.4,type:'沖繩麵',desc:'距離美國村不遠的超人氣沖繩麵！特色是軟嫩到入口即化的豬軟骨，且高湯極致鮮甜。',recommend:'🍜 必點：浜屋豬軟骨沖繩麵 (浜屋そば)',tape:'rgba(135,206,235,0.72)',angle:'-1deg'},
+      {name:'Junglila Cafe and Restaurant',area:'北谷・美浜',rating:4.2,type:'網美帳篷咖啡',desc:'室內佈置成沙灘與帳篷的波西米亞風格，極度夢幻的打卡餐廳，坐在鞦韆上喝飲料超chill。',recommend:'🍹 必點：無酒精特調、水果聖代',tape:'rgba(175,238,238,0.72)',angle:'3deg'},
+      {name:'Red Lobster 沖繩北谷店',area:'北谷・美國村',rating:4.0,type:'海鮮美式餐廳',desc:'來自美國的知名海鮮連鎖餐廳，想在美國村大啖整隻龍蝦或生蠔的話，這裡是首選。',recommend:'🦞 必點：清蒸活龍蝦、海鮮大拼盤',tape:'rgba(152,251,152,0.72)',angle:'-3deg'},
+      {name:'Double Decker',area:'北谷・美國村',rating:4.1,type:'英倫風洋食',desc:'外觀是一台巨大的紅色雙層巴士！提供好吃的蛋包飯與調酒，氣氛非常獨特。',recommend:'🍛 必點：石垣牛漢堡排蛋包飯',tape:'rgba(173,216,230,0.72)',angle:'1deg'},
+      {name:'Coffee Casa',area:'北谷',rating:4.5,type:'手沖咖啡',desc:'遠離美國村核心鬧區的寧靜角落，店主對咖啡豆的烘焙極度講究，適合喜愛安靜品嚐咖啡的人。',recommend:'☕ 必點：自家烘焙單品手沖咖啡',tape:'rgba(176,224,230,0.72)',angle:'-2deg'},
+      {name:'神之麵 (Kami Soba)',area:'北谷',rating:4.2,type:'清淡系沖繩麵',desc:'不使用化學調味料，以鰹魚熬煮的清澄高湯聞名，吃完完全不會口乾舌燥。',recommend:'🍜 必點：特製神之沖繩麵',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+    ]
+  },
+  {
+    id:'day3', num:'03', date:'7月4日',
+    title:'沖繩北部絕景與煙火',
+    subtitle:'一路向北！途經許田休息站，跨越古宇利大橋欣賞清澈見底的藍色海洋，晚間在海洋博公園欣賞夏日煙火。',
+    itinerary: [
+      { time: '08:00', text: '那霸STRATA酒店 <span>(出發，停留 01時00分)</span>', icon: '🚗', map: 'Hotel Strata Naha' },
+      { time: '10:05', text: '許田休息站 <span>(停留 01時00分)</span>', icon: '🏪', map: '道の駅 許田' },
+      { time: '11:45', text: '古宇利島 <span>(停留 01時00分)</span>', icon: '🏝️', map: '古宇利島' },
+      { time: '19:00', text: '海洋博公園 <span>(20:00煙火，停留 02時00分)</span>', icon: '🎆', map: '海洋博公園' }
+    ],
+    places:[
+      {name:'Kouri Shrimp (蝦蝦飯)',area:'古宇利島',rating:4.4,type:'夏威夷蒜香蝦',desc:'古宇利島的絕對必吃美食！夏威夷經典的蒜香奶油蝦配上白飯，香氣濃郁到讓人停不下來。',recommend:'🍤 必點：原味蒜蓉蝦蝦飯',tape:'rgba(176,224,230,0.72)',angle:'-2deg'},
+      {name:'岸本食堂 (Kishimoto Soba)',area:'本部町',rating:4.3,type:'百年沖繩麵',desc:'超過百年的傳奇沖繩麵老店！使用柴灰製作傳統麵條，湯頭有著獨特的木柴香氣與濃郁鰹魚味。',recommend:'🍜 必點：沖繩麵、沖繩炊飯 (Jushi)',tape:'rgba(135,206,235,0.72)',angle:'2deg'},
+      {name:'Captain Kangaroo',area:'名護・本部',rating:4.6,type:'超浮誇漢堡',desc:'被無數網友評為「沖繩最好吃的漢堡」！漢堡肉厚實多汁，配料堆疊如山，視覺與味覺雙重震撼。',recommend:'🍔 必點：Sparky 炸洋蔥圈起司漢堡',tape:'rgba(152,251,152,0.72)',angle:'-1deg'},
+      {name:'花人逢 (Pizza in the Sky)',area:'本部町',rating:4.4,type:'海景披薩',desc:'位於半山腰的古民家餐廳，坐在日式緣廊上吃著熱騰騰的牽絲披薩，俯瞰瀨底島絕美海景。',recommend:'🍕 必點：綜合熱烤披薩、冰鎮芒果',tape:'rgba(173,216,230,0.72)',angle:'3deg'},
+      {name:'百年古家 大家 (Ufuya)',area:'名護市',rating:4.2,type:'阿古豬料理',desc:'由百年古宅改建，伴隨著流水瀑布造景。這裡的阿古豬（Agu豬）涮涮鍋與沖繩麵非常出名。',recommend:'🍲 必點：阿古豬特極涮涮鍋 (晚餐需預約)',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'許田休息站美食 (道の駅 許田)',area:'名護・許田',rating:4.3,type:'公路休息站小吃',desc:'日本全國票選第一的公路休息站！這裡有買不完的在地小吃與名產，也是買水族館優惠票的地方。',recommend:'🥖 必點：現炸一口沙翁 (三矢本舖)、辣味魚板',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
+      {name:'Shirasa 食堂 (しらさ食堂)',area:'古宇利島',rating:4.3,type:'海膽蓋飯',desc:'古宇利島以盛產海膽聞名。這家老牌食堂提供鋪滿新鮮海膽與海葡萄的奢華蓋飯！',recommend:'🍣 必點：海膽海葡萄雙拼蓋飯',tape:'rgba(176,224,230,0.72)',angle:'-2deg'},
+      {name:'Restaurant L Lota',area:'古宇利島',rating:4.5,type:'質感海景餐廳',desc:'古宇利島上難得的高級質感法式/洋食餐廳，大片落地窗可直接眺望古宇利大橋的壯麗全景。',recommend:'🍷 必點：香煎鮮魚套餐、精品手沖咖啡',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
+      {name:'Flipper 牛排館',area:'名護市',rating:4.4,type:'老牌鐵板牛排',desc:'名護在地人極度熱愛的平價老牌牛排館，肉質軟嫩，附餐的濃湯與手工派也非常搶手。',recommend:'🥩 必點：特選沙朗牛排、手作蘋果派',tape:'rgba(173,216,230,0.72)',angle:'-1deg'},
+      {name:'Ocean Blue Cafe',area:'美麗海水族館內',rating:4.2,type:'水族箱旁咖啡',desc:'位於水族館內部「黑潮之海」大水槽旁！可以一邊喝咖啡一邊看著鯨鯊在眼前優游，極致夢幻。',recommend:'🥤 必點：藍色海洋拿鐵、紅芋霜淇淋',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
+      {name:'Nakijin Soba (今歸仁沖繩麵)',area:'今歸仁村',rating:4.5,type:'古民家沖繩麵',desc:'隱身在今歸仁村的傳統古民家中，湯頭極其清甜淡雅，用餐環境充滿寧靜的鄉村氛圍。',recommend:'🍜 必點：特製今歸仁沖繩麵',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'Yanbaru Gelato',area:'名護市',rating:4.4,type:'義式冰淇淋',desc:'曾榮獲世界大賽殊榮的義式冰淇淋！使用沖繩山原產的水果精心製作，口感綿密果香濃郁。',recommend:'🍨 必點：山原香檸口味、今歸仁西瓜口味',tape:'rgba(152,251,152,0.72)',angle:'1deg'},
+      {name:'古宇利海洋塔 Cafe',area:'古宇利島',rating:4.1,type:'展望台甜點',desc:'位於塔頂的景觀咖啡廳，擁有島上最高的制高點視野，適合享用下午茶並欣賞漸層海色。',recommend:'🍰 必點：島南瓜布丁、特製舒芙蕾',tape:'rgba(176,224,230,0.72)',angle:'-2deg'},
+      {name:'名護漁港食堂',area:'名護漁港',rating:4.1,type:'海鮮定食',desc:'漁會直營的在地食堂！沒有華麗裝潢，只有最新鮮、份量最大且價格超佛心的生魚片與炸魚定食。',recommend:'🐟 必點：每日特上海鮮丼、酥炸近海魚定食',tape:'rgba(173,216,230,0.72)',angle:'2deg'},
+      {name:'八重食堂',area:'名護市',rating:4.3,type:'茶壺沖繩麵',desc:'名護知名的特色沖繩麵，最大的亮點是「高湯裝在茶壺裡」讓客人自己倒，麵條是寬扁麵。',recommend:'🍜 必點：綜合三層肉沖繩麵',tape:'rgba(135,206,235,0.72)',angle:'-1deg'},
+      {name:'宮里そば (Miyazato Soba)',area:'名護市',rating:4.2,type:'排隊沖繩麵',desc:'名護當地人從小吃到大的名店！除了經典的沖繩麵，他們的「義大利麵」也意外地超受歡迎。',recommend:'🍝 必點：排骨沖繩麵、古早味肉醬義大利麵',tape:'rgba(175,238,238,0.72)',angle:'3deg'},
+      {name:'A&W 名護店',area:'名護市',rating:4.1,type:'美式連鎖速食',desc:'前往北部必經之處的A&W，不僅可以稍作休息，也是體驗沖繩獨特美日融合飲食文化的站點。',recommend:'🍔 必點：辣醬熱狗堡、漂浮麥根沙士',tape:'rgba(152,251,152,0.72)',angle:'-3deg'},
+      {name:'前田食堂 (名護店)',area:'名護市',rating:4.1,type:'牛肉豆芽麵',desc:'以「堆疊如山的黑胡椒牛肉炒豆芽」聞名的豪邁沖繩麵，胡椒香氣極度濃烈，份量驚人。',recommend:'🍜 必點：牛肉炒豆芽沖繩麵',tape:'rgba(176,224,230,0.72)',angle:'1deg'},
+      {name:'Ringo Cafe',area:'本部町・瀨底島',rating:4.6,type:'法式馬卡龍',desc:'由法國甜點師傅經營的隱藏版小店，將沖繩在地食材（如香檸、伊江島蘭姆酒）融入法式馬卡龍中。',recommend:'🍪 必點：沖繩香檸馬卡龍、海鹽焦糖馬卡龍',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'哥倫比亞洋食 (Restaurant Colombia)',area:'名護市',rating:4.1,type:'復古洋食',desc:'充滿濃厚昭和風味的老牌洋食餐廳，彷彿時光倒流，招牌的特大炸蝦定食是許多在地人的回憶。',recommend:'🍤 必點：特大炸蝦定食、手工漢堡排',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+    ]
+  },
+  {
+    id:'day4', num:'04', date:'7月5日',
+    title:'深入南城玉泉洞',
+    subtitle:'前往沖繩南部探險，見證壯麗的鐘乳石奇景「玉泉洞」，並享受南部的無敵海景與悠閒步調。',
+    itinerary: [
+      { time: '08:00', text: '那霸STRATA酒店 <span>(出發，停留 01時00分)</span>', icon: '🚗', map: 'Hotel Strata Naha' },
+      { time: '09:33', text: '玉泉洞 (沖繩世界) <span>(停留 01時00分，建議可安排南部海景咖啡或奧武島行程)</span>', icon: '🦇', map: '玉泉洞' }
+    ],
+    places:[
+      {name:'Cafe Kurukuma (庫魯庫馬)',area:'南城市',rating:4.4,type:'海景泰式料理',desc:'南部最著名的無敵海景餐廳！位於高台上，能將太平洋盡收眼底，而且提供的泰式咖哩非常正宗美味。',recommend:'🍛 必點：庫魯庫馬特製綜合泰式咖哩',tape:'rgba(135,206,235,0.72)',angle:'-2deg'},
+      {name:'中本鮮魚天婦羅店',area:'南城・奧武島',rating:4.2,type:'沖繩天婦羅',desc:'過橋就能抵達的奧武島，這裡的炸天婦羅麵衣厚實鬆軟，價格極其便宜，買完坐在漁港邊吃最棒。',recommend:'🍤 必點：炸水雲(海髮菜)、炸花枝天婦羅',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
+      {name:'糸滿魚市場 (Itoman Fish Center)',area:'糸滿市',rating:4.3,type:'海鮮小吃',desc:'南部吃海鮮的聖地！各攤位販售一盤盤切好的生魚片、焗烤龍蝦與生蠔，買完直接在旁邊立吞。',recommend:'🍣 必點：鮮甜干貝串、焗烤明太子龍蝦',tape:'rgba(176,224,230,0.72)',angle:'-1deg'},
+      {name:'濱邊的茶屋 (浜辺の茶屋)',area:'南城市',rating:4.4,type:'沙灘咖啡',desc:'沖繩海景咖啡館的先驅。退潮時可以走到沙灘上，漲潮時海水就在窗戶正下方，氣氛無與倫比。',recommend:'🍰 必點：手作起司蛋糕、扶桑花茶',tape:'rgba(173,216,230,0.72)',angle:'3deg'},
+      {name:'山之茶屋 樂水',area:'南城市',rating:4.5,type:'山林蔬食',desc:'位於濱邊茶屋上方的山腰，被綠意環繞的木造建築，提供極致健康的沖繩在地野菜與素食料理。',recommend:'🥗 必點：樂水御膳 (在地野菜定食)',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'Cave Cafe (鐘乳石洞咖啡)',area:'南城市・玉泉洞對面',rating:4.3,type:'奇景咖啡',desc:'真的位於天然鐘乳石洞內的咖啡廳！由「Gangala之谷」經營，氣氛神祕沁涼，非常特殊的體驗。',recommend:'☕ 必點：35 COFFEE (珊瑚烘焙咖啡)',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
+      {name:'食堂Karika (食堂かりか)',area:'南城市・新原海灘',rating:4.4,type:'沙灘尼泊爾咖哩',desc:'踩在白沙灘上吃正宗尼泊爾咖哩！完全沒有建築物，只有沙灘上的陽傘與座位，真正的海島風情。',recommend:'🍛 必點：尼泊爾香料雞肉咖哩、拉西(Lassi)',tape:'rgba(152,251,152,0.72)',angle:'-2deg'},
+      {name:'沖繩麵 峰 (Mine)',area:'南城市',rating:4.6,type:'精緻沖繩麵',desc:'隱藏在南部的高評價名店。湯頭極為講究，自家製麵條Ｑ彈，擺盤精緻如法式料理，還能看到海景。',recommend:'🍜 必點：特製三層肉沖繩麵',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
+      {name:'大城天婦羅店',area:'南城・奧武島',rating:4.3,type:'沖繩天婦羅',desc:'奧武島上另一家超人氣天婦羅店。與中本齊名，特色是現點現炸，需要拿號碼牌等待，但絕對值得。',recommend:'🍤 必點：炸鮪魚、炸蔬菜球',tape:'rgba(173,216,230,0.72)',angle:'-1deg'},
+      {name:'Southern Beach Hotel 自助餐',area:'糸滿市',rating:4.2,type:'飯店Buffet',desc:'如果南部行程想安排一頓豐盛的大餐，這間海灘飯店的午餐自助餐提供豐富的海鮮與沖繩料理。',recommend:'🍽️ 必點：午餐時段百匯 Buffet',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
+      {name:'まんぷく食堂 (Manpuku)',area:'南城市',rating:4.1,type:'牛汁・羊肉湯',desc:'想挑戰最深度的沖繩在地滋味？這家食堂以濃郁的「山羊湯」和「牛汁」聞名，深受當地大叔喜愛。',recommend:'🍲 必點：沖繩牛汁定食 (不排斥羊肉可試山羊湯)',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'Cafe 風樹',area:'南城市',rating:4.4,type:'小木屋海景咖啡',desc:'位於半山腰的兩層樓原木打造小屋，二樓的視野開闊，可以一邊吹著海風一邊享用手作洋食。',recommend:'🍝 必點：漢堡排套餐、海鮮義大利麵',tape:'rgba(152,251,152,0.72)',angle:'1deg'},
+      {name:'琉球玻璃村 Cafe',area:'糸滿市',rating:4.1,type:'休閒輕食',desc:'在體驗完吹製玻璃後，可以在此稍作休息，餐點會使用美麗的琉球玻璃器皿盛裝，視覺效果佳。',recommend:'🍹 必點：熱帶水果漸層氣泡飲',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'糸滿農貿市場 (Umanchu市場)',area:'糸滿市',rating:4.3,type:'農產小吃',desc:'就在魚市場旁邊！這裡是買沖繩便宜水果（如芒果、鳳梨）和當地阿嬤手作熟食便當的最佳去處。',recommend:'🍍 必點：當季切片鳳梨、沖繩炸甜甜圈(Sata Andagi)',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
+      {name:'Cafe Yabusachi',area:'南城市',rating:4.2,type:'高台海景洋食',desc:'緊鄰百名伽藍的高台餐廳，大片落地窗外是無邊際的湛藍海景，餐點以法式及義式洋食為主。',recommend:'🥗 必點：沖繩縣產蔬菜法式鹹派',tape:'rgba(135,206,235,0.72)',angle:'-1deg'},
+      {name:'A&W 糸滿店',area:'糸滿市',rating:4.0,type:'美式連鎖速食',desc:'在南部行程結束要返回那霸前，如果肚子餓了，來份A&W的圈圈薯條解饞是最好的選擇。',recommend:'🍟 必點：香脆圈圈薯條 (Curly Fries)',tape:'rgba(175,238,238,0.72)',angle:'3deg'},
+      {name:'天空茶屋 (Tenku no Chaya)',area:'南城市',rating:4.3,type:'秘境絕景',desc:'位置隱密，需要開過一小段陡坡。擁有無敵的視野可以俯瞰知念半島，是一處靜謐的放空秘境。',recommend:'🍵 必點：手作紅芋麻糬與熱茶',tape:'rgba(152,251,152,0.72)',angle:'-3deg'},
+      {name:'南部蕎麥麵 (南部そば)',area:'糸滿市',rating:4.4,type:'豬腳沖繩麵',desc:'以「滷豬腳沖繩麵 (Tebichi Soba)」稱霸南部的名店！豬腳滷得晶瑩剔透、入口即化，充滿膠質。',recommend:'🍜 必點：招牌特製滷豬腳沖繩麵',tape:'rgba(176,224,230,0.72)',angle:'1deg'},
+      {name:'与那原家',area:'与那原町',rating:4.2,type:'多口味沖繩麵',desc:'提供「清淡」與「濃厚」兩種湯頭選擇，甚至還有少見的雞白湯沖繩麵，滿足不同人的口味需求。',recommend:'🍜 必點：濃厚豚骨湯頭沖繩麵',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'Jef Yonabaru (与那原店)',area:'与那原町',rating:4.1,type:'沖繩限定速食',desc:'南部唯一的分店，除了苦瓜漢堡，這裡的炸雞也是在地人默默推薦的隱藏版美味。',recommend:'🍗 必點：Jef 鮮嫩多汁脆皮炸雞',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+    ]
+  },
+  {
+    id:'day5', num:'05', date:'7月6日',
+    title:'瀨長島與滿載而歸',
+    subtitle:'把握最後的時光，可安排前往離機場超近的「瀨長島」看飛機起降吃鬆餅，帶著美好回憶準備返台。',
+    itinerary: [
+      { time: '08:00', text: '那霸STRATA酒店 <span>(退房/出發，停留 01時00分)</span>', icon: '📝', map: 'Hotel Strata Naha' },
+      { time: '19:45', text: '那霸機場 <span>(報到/候機，停留 -19時-45分)</span>', icon: '🛫', map: '那霸機場' },
+      { time: '20:30', text: '高雄國際機場 <span>(抵達台灣，停留 -20時-30分)</span>', icon: '🛬', map: '高雄國際機場' }
+    ],
+    places:[
+      {name:'幸福鬆餅 (幸せのパンケーキ)',area:'瀨長島',rating:4.4,type:'舒芙蕾鬆餅',desc:'瀨長島Umikaji Terrace最狂的排隊名店！極度鬆軟如雲朵般的舒芙蕾鬆餅，搭配無敵海景超療癒。',recommend:'🥞 必點：原味幸福厚鬆餅、季節限定水果口味',tape:'rgba(135,206,235,0.72)',angle:'-2deg'},
+      {name:'Kame Andagi (瀨長島店)',area:'瀨長島',rating:4.4,type:'沖繩炸沙翁',desc:'沖繩傳統甜點「開口笑 (沙翁)」，這裡現炸出爐後還可以夾入各種口味的冰淇淋，外熱內冷超級好吃。',recommend:'🍩 必點：紅芋冰淇淋夾心沙翁',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
+      {name:'Eightman\'s Sea Burg',area:'瀨長島',rating:4.3,type:'海鮮漢堡',desc:'使用沖繩近海捕獲的新鮮魚類製作的特色「魚漢堡」，跳脫傳統牛肉漢堡的框架，清爽美味。',recommend:'🍔 必點：原創沖繩鮮魚漢堡',tape:'rgba(176,224,230,0.72)',angle:'-1deg'},
+      {name:'瀨長島 47 STORE',area:'瀨長島',rating:4.2,type:'伴手禮與點心',desc:'集合了日本47都道府縣的精選商品，除了好買，店內的熱食小點也很適合買來配夕陽。',recommend:'🛍️ 必點：各類沖繩限定特色伴手禮',tape:'rgba(173,216,230,0.72)',angle:'3deg'},
+      {name:'豬肉蛋飯糰 那霸機場店',area:'那霸機場 國內線',rating:4.3,type:'沖繩飯糰',desc:'上飛機前最後的回味！國內線航廈一樓的超人氣排隊飯糰，方便帶上飛機或在候機時享用。',recommend:'🍙 必點：明太子美乃滋豬肉蛋飯糰',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'A&W 那霸機場店',area:'那霸機場 國內線',rating:4.2,type:'美式連鎖速食',desc:'位於機場國內線3樓。離開沖繩前，別忘了再來一杯冰涼的麥根沙士和好吃的圈圈薯條！',recommend:'🍔 必點：經典起司漢堡套餐、麥根沙士',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
+      {name:'Royal Coffee Shop',area:'那霸機場 國際線',rating:4.0,type:'機場洋食',desc:'在國際線候機時的好去處，提供水準穩定的日式洋食（如咖哩飯、蛋包飯）與咖啡。',recommend:'🍛 必點：經典牛肉黑咖哩飯',tape:'rgba(152,251,152,0.72)',angle:'-2deg'},
+      {name:'琉球村 那霸機場店',area:'那霸機場 國內線',rating:4.1,type:'沖繩麵',desc:'如果在市區還吃不夠沖繩麵，機場內的這家店能迅速滿足你的渴望，出餐快且味道道地。',recommend:'🍜 必點：綜合三層肉沖繩麵',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
+      {name:'Jimmy\'s 那霸機場店',area:'那霸機場 國內線',rating:4.3,type:'美式烘焙超市',desc:'沖繩老牌的美式超市品牌。他們的大蒜麵包與美式磅蛋糕是非常受內行人歡迎的伴手禮。',recommend:'🍞 必點：香濃大蒜抹醬麵包、蘋果派',tape:'rgba(173,216,230,0.72)',angle:'-1deg'},
+      {name:'Fukugiya 那霸機場店',area:'那霸機場 國內線',rating:4.3,type:'年輪蛋糕',desc:'國際通的名店在機場也有專櫃！買一盒當天現烤的黑糖年輪蛋糕帶回台灣，是最棒的結尾。',recommend:'🍰 必點：黑糖年輪蛋糕 (帶回台灣依舊美味)',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
+      {name:'御菓子御殿 機場店',area:'那霸機場',rating:4.5,type:'紅芋塔',desc:'沖繩無人不知的代表性伴手禮。除了經典的紅芋塔，生紅芋塔（需冷藏）更是隱藏版美味。',recommend:'🍠 必點：經典紅芋塔、生紅芋塔',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'Royce\' 石垣島 (機場免稅店)',area:'那霸機場 國際線',rating:4.6,type:'巧克力',desc:'只有在沖繩才買得到的 Royce\' 限定版！融合了石垣島海鹽、黑糖與沖繩鳳梨的特殊風味巧克力。',recommend:'🍫 必點：石垣島海鹽生巧克力、黑糖巧克力',tape:'rgba(152,251,152,0.72)',angle:'1deg'},
+      {name:'Sora Terrace',area:'那霸機場 國際線',rating:4.0,type:'候機輕食',desc:'過完安檢後的國際線候機室輕食吧，可以在這裡喝杯沖繩Orion生啤酒，看著飛機等待登機。',recommend:'🍺 必點：Orion 生啤酒、簡單熱狗堡',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'風月 (Fugetsu)',area:'那霸機場 國內線',rating:4.1,type:'日式定食',desc:'想在機場安靜地吃一頓日式炸豬排或蕎麥麵，這裡是不錯的選擇，座位寬敞舒適。',recommend:'🍱 必點：炸豬排定食',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
+      {name:'大東壽司 機場便當版',area:'那霸機場 販賣部',rating:4.3,type:'機場鐵路便當',desc:'常被秒殺的夢幻空弁（機場便當）！由大東壽司特製的醬油醃漬魚肉握壽司，帶上飛機吃超幸福。',recommend:'🍣 必點：大東壽司便當 (看到必搶)',tape:'rgba(135,206,235,0.72)',angle:'-1deg'},
+      {name:'Coralway',area:'那霸機場 國內線',rating:4.2,type:'精選伴手禮',desc:'JAL經營的伴手禮店，可以買到許多沖繩限定的文創小物、零食，甚至還有石垣島辣油。',recommend:'🌶️ 必點：邊銀食堂石垣島辣油',tape:'rgba(175,238,238,0.72)',angle:'3deg'},
+      {name:'Blue Seal 那霸機場店',area:'那霸機場 國內線',rating:4.2,type:'冰淇淋',desc:'登機前的最後一支冰淇淋！回味沖繩夏天的味道，劃下完美的句點。',recommend:'🍦 必點：沖繩田芋起司蛋糕口味',tape:'rgba(152,251,152,0.72)',angle:'-3deg'},
+      {name:'琉球新麵 通堂 本店',area:'那霸・小祿',rating:4.2,type:'男人麵女人麵',desc:'距離機場非常近的拉麵名店，如果時間充裕，可以來這裡吃碗知名的「男人麵(豚骨)」或「女人麵(鹽味)」。',recommend:'🍜 必點：女人麵 (清爽鹽味雞湯拉麵)',tape:'rgba(176,224,230,0.72)',angle:'1deg'},
+      {name:'首里蕎麥麵 (Shuri Soba)',area:'那霸・首里',rating:4.4,type:'手打沖繩麵',desc:'(若早上有空前往首里城) 每日限量、極度受歡迎的手打沖繩麵，麵條偏硬極有嚼勁，高湯極清澈。',recommend:'🍜 必點：限量首里沖繩麵、沖繩炊飯',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'Okinawa Soba EIBUN',area:'那霸・壺屋',rating:4.5,type:'新派沖繩麵',desc:'(若早上還在那霸市區) 將傳統沖繩麵加入香菜、特製辣油等創新元素的超人氣文青麵店。',recommend:'🍜 必點：特製無湯香菜拌麵 (BUMP)',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+    ]
+  }
+];
+
+/* ═══ HELPERS ═══ */
+function buildMapUrl(q) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+}
+
+/* ═══ RENDER ═══ */
+const mainEl = document.getElementById('mainEl');
+
+DAYS.forEach(day => {
+  const color = DAY_COLORS[day.id];
+  
+  // 1. 渲染時間軸 (Timeline)
+  let timelineHTML = '';
+  if(day.itinerary && day.itinerary.length > 0) {
+    timelineHTML = `
+      <div class="timeline-wrap">
+        <div class="timeline-bg"></div>
+        <div class="timeline-header"><i class="fas fa-route" style="color:${color}"></i> 行程規劃</div>
+        <div class="timeline-list">
+          ${day.itinerary.map(it => `
+            <div class="timeline-item">
+              <div class="timeline-icon" style="color:${color}">${it.icon}</div>
+              <div class="timeline-content">
+                <div class="timeline-time">${it.time}</div>
+                <div class="timeline-text">${it.text}</div>
+                ${it.map ? `<a href="${buildMapUrl(it.map)}" target="_blank" class="timeline-map-btn"><i class="fas fa-map-pin" style="color:${color}"></i> 地圖導航</a>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  // 2. 渲染美食清單 (純文字卡片版，固定20家)
+  const cardsHTML = day.places.map((p, i) => {
+    return `
+    <div class="card" style="--tape-color:${p.tape};--tape-angle:${p.angle}">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-area" style="color:${color}"><i class="fas fa-map-marker-alt"></i>${p.area}</div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-type">${p.type}</div>
+        </div>
+        <div class="card-score">${p.rating}<span class="s"><i class="fas fa-star"></i></span></div>
+      </div>
+      <div class="card-desc">${p.desc}</div>
+      <div class="card-recommend" style="--rc-color:${color}">
+        <div class="rc-title">推薦必點</div>
+        <div>${p.recommend}</div>
+      </div>
+      <div style="margin-top:auto">
+        <a href="${buildMapUrl(p.name + ' ' + p.area + ' 沖繩 日本')}" target="_blank" class="btn-map">
+          <i class="fas fa-location-dot"></i> 開啟地圖導航
+        </a>
+      </div>
+    </div>`;
+  }).join('');
+
+  const sec = document.createElement('section');
+  sec.id = day.id;
+  sec.className = 'day-section';
+  sec.innerHTML = `
+    <div class="day-header">
+      <div class="day-badge" style="background:${color}">
+        <div class="dn">${day.num}</div><div class="dl">DAY</div>
+      </div>
+      <div class="day-meta">
+        <div class="day-title" style="color:${color}">${day.date}　${day.title}</div>
+        <div class="day-subtitle">${day.subtitle}</div>
+      </div>
+    </div>
+    ${timelineHTML}
+    <h3 style="font-family:'Zen Maru Gothic'; font-weight:900; margin-bottom: 20px; font-size: 1.1rem; color:var(--ink); display:flex; align-items:center; gap:8px;">
+      <i class="fas fa-utensils" style="color:${color}; font-size:0.9em;"></i> 周邊美食與伴手禮推薦 (20選)
+    </h3>
+    <div class="restaurant-grid">${cardsHTML}</div>
+  `;
+  mainEl.appendChild(sec);
+});
+
+/* ═══ SCROLL ANIMATIONS (Framer Motion 風格淡入) ═══ */
+const animateObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in-view');
+      animateObs.unobserve(e.target); // 動畫只播放一次
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.timeline-item, .card').forEach(el => animateObs.observe(el));
+
+
+/* ═══ NAV CLICK ═══ */
+const navItems = document.querySelectorAll('.nav-item');
+navItems.forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    const dayId = this.dataset.day;
+    navItems.forEach(n => n.classList.remove('active'));
+    this.classList.add('active');
+    const sec = document.getElementById(dayId);
+    const navH = document.querySelector('.nav-wrap').offsetHeight;
+    const y = sec.getBoundingClientRect().top + window.scrollY - navH - 12;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  });
+});
+
+/* ═══ SCROLL SPY ═══ */
+const sections = document.querySelectorAll('.day-section');
+const secObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const id = e.target.id;
+    navItems.forEach(n => n.classList.remove('active'));
+    const match = document.querySelector(`.nav-item[data-day="${id}"]`);
+    if (match) match.classList.add('active');
+  });
+}, { threshold: 0, rootMargin: '-60px 0px -75% 0px' });
+
+sections.forEach(s => secObs.observe(s));
+
+/* ═══ BACK TO TOP ═══ */
+const btt = document.getElementById('btt');
+window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 500), { passive: true });
+</script>
+</body>
+</html>
