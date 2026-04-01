@@ -87,6 +87,29 @@ body::before {
   50%     { transform: translateX(-50%) translateY(8px); }
 }
 
+/* ── WEATHER WIDGET ── */
+.weather-container {
+  max-width: 1000px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 10; margin-top: -40px; margin-bottom: 40px;
+}
+.weather-box {
+  background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px); border-radius: 12px;
+  padding: 16px 20px; box-shadow: 0 8px 32px rgba(0,131,143,0.08); border: 1px solid rgba(0, 131, 143, 0.15);
+}
+.weather-header { font-family: 'Zen Maru Gothic', sans-serif; font-size: 1rem; font-weight: 900; color: var(--ink); margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;}
+.weather-disclaimer { font-family: 'Noto Sans TC', sans-serif; font-size: 0.75rem; font-weight: 700; color: var(--orange); background: rgba(0, 105, 92, 0.08); padding: 4px 10px; border-radius: 20px;}
+.weather-forecast { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
+.weather-forecast::-webkit-scrollbar { display: none; }
+.weather-day-card {
+  flex: 0 0 calc(100% / 7 - 10px); min-width: 75px; display: flex; flex-direction: column; align-items: center;
+  background: var(--paper); border-radius: 8px; padding: 12px 8px; border: 1px solid rgba(0, 131, 143, 0.05); transition: transform 0.2s;
+}
+.weather-day-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.w-date { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: rgba(17,42,70,0.6); margin-bottom: 6px; font-weight: 700;}
+.w-icon { font-size: 1.6rem; margin-bottom: 6px; }
+.w-temp { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; color: var(--ink); }
+.w-temp span { color: rgba(17,42,70,0.4); font-size: 0.75rem; }
+.w-rain { font-size: 0.7rem; color: var(--red); margin-top: 4px; font-weight: 700; display:flex; align-items:center; gap:3px;}
+
 /* ── NAV ── */
 .nav-wrap {
   position: sticky; top: 0; z-index: 200; background: rgba(244, 249, 249, 0.95);
@@ -260,6 +283,19 @@ footer strong { display: block; font-family: 'Zen Maru Gothic', sans-serif; font
   <div class="scroll-hint"><span>SCROLL</span><i class="fas fa-chevron-down"></i></div>
 </section>
 
+<!-- Weather Widget -->
+<div class="weather-container">
+  <div class="weather-box">
+    <div class="weather-header">
+      <span><i class="fas fa-cloud-sun" style="color:#0277BD;"></i> 那霸市 7 日天氣預報</span>
+      <span class="weather-disclaimer">📅 API 顯示近期預報 (距7月尚遠)</span>
+    </div>
+    <div class="weather-forecast" id="weatherForecast">
+      <div style="font-size:0.85rem; color:rgba(17,42,70,0.5); padding: 10px 0;"><i class="fas fa-spinner fa-spin"></i> 正在載入 Open-Meteo 即時氣象資料...</div>
+    </div>
+  </div>
+</div>
+
 <nav class="nav-wrap">
   <div class="nav-inner">
     <a class="nav-item active" href="#day1" data-day="day1"><span class="day-dot" style="background:#0277bd"></span>7/2 抵達那霸</a>
@@ -317,6 +353,11 @@ const DAYS = [
       {name:'三笠食堂 (Mikasa)',area:'那霸・松山',rating:4.0,type:'24小時家庭餐廳',desc:'在地人愛去的老牌平價食堂，全天候營業，提供大份量且道地的沖繩家庭料理。',recommend:'🍛 必點：沖繩肉絲炒麵線、奶油烤魚',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
       {name:'黑糖可麗露 ほうき星 (Houkiboshi)',area:'那霸・新都心',rating:4.4,type:'精緻甜點',desc:'沖繩第一家可麗露專賣店，使用多良間島黑糖製作，外觀極度精美，被譽為必買神級甜點。',recommend:'🍮 必點：沖繩黑糖可麗露綜合禮盒',tape:'rgba(135,206,235,0.72)',angle:'2deg'},
       {name:'第一牧志公設市場',area:'那霸・國際通',rating:4.1,type:'海鮮市場',desc:'被稱為「沖繩的廚房」，一樓挑選新鮮海產，二樓代客料理，體驗在地市場的活力。',recommend:'🦞 必點：夜光貝生魚片、龍蝦二吃',tape:'rgba(176,224,230,0.72)',angle:'-2deg'}
+    ],
+    shops: [
+      {name:'module (モジュール)', area:'那霸・旭橋', rating:4.5, type:'質感文具與生活選物', desc:'那霸市區極具品味的文具與生活雜貨選物店，文具控絕對會在裡面迷失自我。', recommend:'🖋️ 必逛：精選鋼筆、沖繩特色設計文具', tape:'rgba(173,216,230,0.72)', angle:'1deg'},
+      {name:'tituti OKINAWAN CRAFT', area:'那霸・牧志', rating:4.6, type:'沖繩工藝選物', desc:'由在地工藝師共同經營的質感選物店，販售高質感的陶器、紅型染、木工與織品。', recommend:'🏺 必逛：設計款 Yachimun (沖繩陶器)', tape:'rgba(152,251,152,0.72)', angle:'-2deg'},
+      {name:'驚安殿堂 唐吉訶德 國際通店', area:'那霸・國際通', rating:4.1, type:'觀光客必逛', desc:'24小時營業的血拚聖地！從零食、藥妝到電器應有盡有，半夜睡不著的最佳去處。', recommend:'🛍️ 必逛：沖繩限定零食、熱門藥妝', tape:'rgba(255,182,193,0.72)', angle:'3deg'}
     ]
   },
   {
@@ -355,6 +396,11 @@ const DAYS = [
       {name:'Itoya (阿古豬火鍋)',area:'北中城村/沖繩市',rating:4.3,type:'阿古豬料理',desc:'主打沖繩特有品種「阿古豬(Agu豬)」，肉質鮮甜且油脂不膩口，做成涮涮鍋最能品嚐原味。',recommend:'🍲 必點：阿古豬特級涮涮鍋',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
       {name:'Chataro (茶太郎)',area:'北谷・美國村',rating:4.2,type:'沖繩海景洋食',desc:'位於海濱步道旁，氣氛輕鬆悠閒，提供豐富的洋食與熱帶調酒，夕陽時分景色無敵。',recommend:'🍹 必點：熱帶水果冰沙、炸魚薯條',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
       {name:'Junglila Cafe',area:'北谷・美浜',rating:4.2,type:'網美帳篷咖啡',desc:'室內佈置成沙灘與帳篷的波西米亞風格，極度夢幻的打卡餐廳，坐在鞦韆上喝飲料超chill。',recommend:'🍹 必點：無酒精特調、水果聖代',tape:'rgba(175,238,238,0.72)',angle:'1deg'}
+    ],
+    shops: [
+      {name:'D&DEPARTMENT OKINAWA', area:'宜野灣', rating:4.4, type:'長效設計選物', desc:'日本知名「長效設計」選物店的沖繩據點。精選沖繩在地長久流傳的生活道具與工藝品。', recommend:'🛒 必逛：沖繩在地特產、質感生活器皿', tape:'rgba(175,238,238,0.72)', angle:'-1deg'},
+      {name:'mofgmona no zakka', area:'宜野灣', rating:4.6, type:'生活雜貨與陶器', desc:'隱身在公寓裡的質感雜貨店，老闆親自挑選沖繩各個窯元的精美陶器，器皿控必訪。', recommend:'🍽️ 必逛：沖繩各名家陶器', tape:'rgba(135,206,235,0.72)', angle:'2deg'},
+      {name:'KOJIMA x BicCamera 來客夢店', area:'AEON Rycom', rating:4.0, type:'大型家電・觀光客必逛', desc:'逛商場也能順便買電器！商品齊全，且常有針對外國觀光客的折扣與免稅優惠。', recommend:'📷 必逛：美容家電、最新相機與遊戲機', tape:'rgba(255,182,193,0.72)', angle:'-3deg'}
     ]
   },
   {
@@ -389,6 +435,9 @@ const DAYS = [
       {name:'前田食堂 (名護店)',area:'名護市',rating:4.1,type:'牛肉豆芽麵',desc:'以「堆疊如山的黑胡椒牛肉炒豆芽」聞名的豪邁沖繩麵，胡椒香氣極度濃烈，份量驚人。',recommend:'🍜 必點：牛肉炒豆芽沖繩麵',tape:'rgba(176,224,230,0.72)',angle:'1deg'},
       {name:'Ringo Cafe',area:'本部町・瀨底島',rating:4.6,type:'法式馬卡龍',desc:'由法國甜點師傅經營的隱藏版小店，將沖繩在地食材（如香檸、伊江島蘭姆酒）融入法式馬卡龍中。',recommend:'🍪 必點：沖繩香檸馬卡龍、海鹽焦糖馬卡龍',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
       {name:'哥倫比亞洋食',area:'名護市',rating:4.1,type:'復古洋食',desc:'充滿濃厚昭和風味的老牌洋食餐廳，彷彿時光倒流，招牌的特大炸蝦定食是許多在地人的回憶。',recommend:'🍤 必點：特大炸蝦定食、手工漢堡排',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+    ],
+    shops: [
+      {name:'驚安殿堂 唐吉訶德 名護店', area:'名護市', rating:4.0, type:'觀光客必逛免稅店', desc:'北部最大的唐吉訶德！如果住在北部晚上想補給零食或買藥妝，來這裡非常方便。', recommend:'🛍️ 必逛：生鮮超市區 (有賣生鮮！)、熱門零食', tape:'rgba(255,182,193,0.72)', angle:'1deg'}
     ]
   },
   {
@@ -422,6 +471,10 @@ const DAYS = [
       {name:'Cafe Yabusachi',area:'南城市',rating:4.2,type:'高台海景洋食',desc:'緊鄰百名伽藍的高台餐廳，大片落地窗外是無邊際的湛藍海景，餐點以法式及義式洋食為主。',recommend:'🥗 必點：沖繩縣產蔬菜法式鹹派',tape:'rgba(176,224,230,0.72)',angle:'1deg'},
       {name:'糸滿魚市場',area:'糸滿市',rating:4.3,type:'海鮮小吃',desc:'南部吃海鮮的聖地！各攤位販售一盤盤切好的生魚片、焗烤龍蝦與生蠔，買完直接在旁邊立吞。',recommend:'🍣 必點：鮮甜干貝串、焗烤明太子龍蝦',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
       {name:'南部蕎麥麵 (南部そば)',area:'糸滿市',rating:4.4,type:'豬腳沖繩麵',desc:'以「滷豬腳沖繩麵」稱霸南部的名店！豬腳滷得晶瑩剔透、入口即化，充滿膠質。',recommend:'🍜 必點：招牌特製滷豬腳沖繩麵',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+    ],
+    shops: [
+      {name:'PORTRIVER MARKET', area:'浦添・港川', rating:4.5, type:'質感生活選物', desc:'位於港川外人住宅區內，店主品味極佳，收集了沖繩與世界各地的漂亮餐具、食品與雜貨。', recommend:'☕ 必逛：手作陶器、在地精選咖啡豆', tape:'rgba(152,251,152,0.72)', angle:'-2deg'},
+      {name:'MUJI 無印良品 PARCO CITY', area:'浦添 PARCO CITY', rating:4.5, type:'大型生活雜貨', desc:'沖繩最大規模的無印良品！不僅商品超齊全，還有無印良品食堂可以看海用餐。', recommend:'🍛 必逛：沖繩限定商品、Café&Meal MUJI', tape:'rgba(176,224,230,0.72)', angle:'-1deg'}
     ]
   },
   {
@@ -459,6 +512,9 @@ const DAYS = [
       {name:'風月 (Fugetsu)',area:'那霸機場 國內線',rating:4.1,type:'日式定食',desc:'想在機場安靜地吃一頓日式炸豬排或蕎麥麵，這裡是不錯的選擇，座位寬敞舒適。',recommend:'🍱 必點：炸豬排定食',tape:'rgba(176,224,230,0.72)',angle:'1deg'},
       {name:'Coralway',area:'那霸機場 國內線',rating:4.2,type:'精選伴手禮',desc:'JAL經營的伴手禮店，可以買到許多沖繩限定的文創小物、零食，甚至還有石垣島辣油。',recommend:'🌶️ 必點：邊銀食堂石垣島辣油',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
       {name:'Blue Seal 那霸機場店',area:'那霸機場 國內線',rating:4.2,type:'冰淇淋',desc:'登機前的最後一支冰淇淋！回味沖繩夏天的味道，劃下完美的句點。',recommend:'🍦 必點：沖繩田芋起司蛋糕口味',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+    ],
+    shops: [
+      {name:'KOJIMA x BicCamera 那霸店', area:'那霸市', rating:4.1, type:'大型家電・觀光客必逛', desc:'沖繩單一面積最大的家電量販店！最後一天如果還有電器還沒買齊，直接來這裡掃貨。', recommend:'📺 必逛：熱門吹風機、保溫瓶、模型玩具', tape:'rgba(255,182,193,0.72)', angle:'2deg'}
     ]
   }
 ];
@@ -522,6 +578,41 @@ DAYS.forEach(day => {
     </div>`;
   }).join('');
 
+  // 3. 渲染購物清單 (質感選物與觀光客必逛)
+  let shopsHTML = '';
+  if(day.shops && day.shops.length > 0) {
+    const shopCards = day.shops.map((p, i) => {
+      return `
+      <div class="card" style="--tape-color:${p.tape};--tape-angle:${p.angle}">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-area" style="color:${color}"><i class="fas fa-map-marker-alt"></i>${p.area}</div>
+            <div class="card-name">${p.name}</div>
+            <div class="card-type">${p.type}</div>
+          </div>
+          <div class="card-score">${p.rating}<span class="s"><i class="fas fa-star"></i></span></div>
+        </div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="card-recommend" style="--rc-color:${color}">
+          <div class="rc-title">重點推薦</div>
+          <div>${p.recommend}</div>
+        </div>
+        <div style="margin-top:auto">
+          <a href="${buildMapUrl(p.name + ' ' + p.area + ' 沖繩 日本')}" target="_blank" class="btn-map">
+            <i class="fas fa-location-dot"></i> 開啟地圖導航
+          </a>
+        </div>
+      </div>`;
+    }).join('');
+
+    shopsHTML = `
+      <h3 style="font-family:'Zen Maru Gothic'; font-weight:900; margin-top: 40px; margin-bottom: 20px; font-size: 1.1rem; color:var(--ink); display:flex; align-items:center; gap:8px;">
+        <i class="fas fa-shopping-bag" style="color:${color}; font-size:0.9em;"></i> 質感選物與必逛商場
+      </h3>
+      <div class="restaurant-grid">${shopCards}</div>
+    `;
+  }
+
   const sec = document.createElement('section');
   sec.id = day.id;
   sec.className = 'day-section';
@@ -540,6 +631,7 @@ DAYS.forEach(day => {
       <i class="fas fa-utensils" style="color:${color}; font-size:0.9em;"></i> 周邊美食與伴手禮推薦 (20選)
     </h3>
     <div class="restaurant-grid">${cardsHTML}</div>
+    ${shopsHTML}
   `;
   mainEl.appendChild(sec);
 });
@@ -589,6 +681,56 @@ sections.forEach(s => secObs.observe(s));
 /* ═══ BACK TO TOP ═══ */
 const btt = document.getElementById('btt');
 window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 500), { passive: true });
+
+/* ═══ OPEN-METEO WEATHER API ═══ */
+async function fetchWeather() {
+  const forecastEl = document.getElementById('weatherForecast');
+  try {
+    // 取得那霸市 (26.2124, 127.6809) 的未來 7 天天氣預報
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=26.2124&longitude=127.6809&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo';
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Network response was not ok');
+    const data = await res.json();
+    
+    const d = data.daily;
+    let html = '';
+    
+    // 將 WMO 氣象代碼轉換為 Emoji
+    const getWeatherIcon = (code) => {
+      if (code === 0) return '☀️'; // 晴天
+      if (code === 1 || code === 2) return '🌤️'; // 多雲時晴
+      if (code === 3) return '☁️'; // 陰天
+      if (code >= 45 && code <= 48) return '🌫️'; // 霧
+      if (code >= 51 && code <= 67) return '🌧️'; // 雨
+      if (code >= 71 && code <= 77) return '❄️'; // 雪
+      if (code >= 80 && code <= 82) return '🌦️'; // 陣雨
+      if (code >= 95) return '⛈️'; // 雷雨
+      return '⛅';
+    };
+
+    for (let i = 0; i < d.time.length; i++) {
+      const dateObj = new Date(d.time[i]);
+      const month = dateObj.getMonth() + 1;
+      const day = dateObj.getDate();
+      
+      html += `
+        <div class="weather-day-card">
+          <div class="w-date">${month}/${day}</div>
+          <div class="w-icon">${getWeatherIcon(d.weathercode[i])}</div>
+          <div class="w-temp">${Math.round(d.temperature_2m_max[i])}° <span>${Math.round(d.temperature_2m_min[i])}°</span></div>
+          <div class="w-rain"><i class="fas fa-umbrella"></i> ${d.precipitation_probability_max[i] || 0}%</div>
+        </div>
+      `;
+    }
+    forecastEl.innerHTML = html;
+  } catch (error) {
+    console.error("Weather API Error:", error);
+    forecastEl.innerHTML = `<div style="font-size:0.85rem; color:var(--red); padding: 10px 0;"><i class="fas fa-exclamation-circle"></i> 暫時無法取得天氣資訊</div>`;
+  }
+}
+// 啟動天氣資料抓取
+fetchWeather();
+
 </script>
 </body>
 </html>
