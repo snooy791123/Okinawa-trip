@@ -12,9 +12,9 @@
   --ink: #112A46;         /* 深海藍 Navy */
   --paper: #F4F9F9;       /* 海風白 Off-white */
   --paper2: #E0F2F1;      /* 淺湖水綠 Light Teal */
-  --red: #0277BD;         /* 海洋藍 Ocean Blue (取代原本的紅) */
-  --gold: #00838F;        /* 深湖水綠 Deep Cyan (取代原本的金) */
-  --orange: #00695C;      /* 墨綠 Teal (取代原本的橘) */
+  --red: #0277BD;         /* 海洋藍 Ocean Blue */
+  --gold: #00838F;        /* 深湖水綠 Deep Cyan */
+  --orange: #00695C;      /* 墨綠 Teal */
   --stamp-red: rgba(2, 119, 189, 0.85);
   --timeline-line: rgba(0, 131, 143, 0.25);
 }
@@ -263,10 +263,10 @@ footer strong { display: block; font-family: 'Zen Maru Gothic', sans-serif; font
 <nav class="nav-wrap">
   <div class="nav-inner">
     <a class="nav-item active" href="#day1" data-day="day1"><span class="day-dot" style="background:#0277bd"></span>7/2 抵達那霸</a>
-    <a class="nav-item" href="#day2" data-day="day2"><span class="day-dot" style="background:#00838f"></span>7/3 美國村</a>
+    <a class="nav-item" href="#day2" data-day="day2"><span class="day-dot" style="background:#00838f"></span>7/3 中北部與美國村</a>
     <a class="nav-item" href="#day3" data-day="day3"><span class="day-dot" style="background:#00695c"></span>7/4 許田・古宇利島</a>
-    <a class="nav-item" href="#day4" data-day="day4"><span class="day-dot" style="background:#283593"></span>7/5 玉泉洞</a>
-    <a class="nav-item" href="#day5" data-day="day5"><span class="day-dot" style="background:#1565c0"></span>7/6 賦歸</a>
+    <a class="nav-item" href="#day4" data-day="day4"><span class="day-dot" style="background:#283593"></span>7/5 浦添・玉泉洞</a>
+    <a class="nav-item" href="#day5" data-day="day5"><span class="day-dot" style="background:#1565c0"></span>7/6 市區巡禮與賦歸</a>
   </div>
 </nav>
 
@@ -289,22 +289,20 @@ const DAYS = [
   {
     id:'day1', num:'01', date:'7月2日',
     title:'啟程與抵達那霸', 
-    subtitle:'出發前往度假天堂沖繩！辦理完飯店入住後，在國際通周邊感受第一晚的南國熱情。',
+    subtitle:'出發前往度假天堂沖繩！抵達並辦理入住後，首日晚上即沉浸在國際通的熱鬧氛圍中。',
     itinerary: [
       { time: '16:15', text: '高雄國際機場 <span>(停留 03時30分)</span>', icon: '🛫', map: '高雄國際機場' },
       { time: '18:40', text: '那霸機場 <span>(停留 00時00分)</span>', icon: '🛬', map: '那霸機場' },
       { time: '19:08', text: '那霸STRATA酒店 <span>(停留 00時30分)</span>', icon: '🏨', map: 'Hotel Strata Naha' },
-      { time: '19:48', text: '國際通 <span>(停留 01時00分)</span>', icon: '🛍️', map: '國際通' },
-      { time: '20:57', text: '那霸STRATA酒店 <span>(停留 01時00分)</span>', icon: '🌙', map: 'Hotel Strata Naha' }
+      { time: '19:48', text: '國際通 <span>(停留 02時30分)</span>', icon: '🛍️', map: '國際通' },
+      { time: '22:27', text: '那霸STRATA酒店 <span>(停留 01時00分)</span>', icon: '🌙', map: 'Hotel Strata Naha' }
     ],
     places:[
       {name:'傑克牛排館 (Jack\'s Steak House)',area:'那霸・旭橋',rating:4.4,type:'美式老牌牛排',desc:'沖繩牛排文化的經典代表！充滿濃濃的昭和復古美式風情，深受在地人與觀光客喜愛。',recommend:'🥩 必點：特選烤牛排 (Tenderloin Steak)',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
-      {name:'豬肉蛋飯糰 牧志市場本店',area:'那霸・國際通',rating:4.4,type:'沖繩飯糰',desc:'來沖繩絕對不能錯過的國民美食，現點現做，熱呼呼的午餐肉與厚煎蛋完美結合。',recommend:'🍙 必點：炸蝦豬肉蛋飯糰、苦瓜天婦羅口味',tape:'rgba(135,206,235,0.72)',angle:'2deg'},
       {name:'ゆうなんぎい (Yunangi)',area:'那霸・國際通',rating:4.3,type:'沖繩鄉土料理',desc:'開業超過50年的老字號居酒屋，想品嚐最道地的沖繩家常菜（如炒苦瓜、墨魚湯）來這裡準沒錯。',recommend:'🥢 必點：沖繩炒苦瓜、東坡肉 (Rafute)',tape:'rgba(176,224,230,0.72)',angle:'-1deg'},
       {name:'牛排屋 88 國際通店',area:'那霸・國際通',rating:4.2,type:'鐵板牛排',desc:'沖繩到處可見的知名連鎖牛排店，提供多種部位選擇，隨時都能享受大口吃肉的快感。',recommend:'🥩 必點：88特選紐約客牛排',tape:'rgba(152,251,152,0.72)',angle:'3deg'},
       {name:'大東麵 (Daito Soba)',area:'那霸・牧志',rating:4.2,type:'沖繩麵',desc:'麵條極具嚼勁，湯頭清澈甘甜，搭配軟嫩的爌肉，是許多人心中那霸市區第一名的沖繩麵。',recommend:'🍜 必點：大東沖繩麵、大東壽司(醬油醃製魚肉)',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
       {name:'Zooton\'s 久茂地店',area:'那霸・久茂地',rating:4.4,type:'手工漢堡',desc:'隱藏在巷弄中的超高評價漢堡店！手打漢堡排多汁，搭配自家製的酪梨醬堪稱絕配。',recommend:'🍔 必點：自製酪梨起司漢堡',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
-      {name:'第一牧志公設市場',area:'那霸・國際通',rating:4.1,type:'海鮮市場',desc:'被稱為「沖繩的廚房」，一樓挑選新鮮海產，二樓代客料理，體驗在地市場的活力。',recommend:'🦞 必點：夜光貝生魚片、龍蝦二吃',tape:'rgba(176,224,230,0.72)',angle:'-2deg'},
       {name:'Ball Donut Park',area:'那霸・國際通',rating:4.3,type:'球型甜甜圈',desc:'現炸的小巧球型甜甜圈，外酥內Ｑ，淋上檸檬汁與糖粉，清爽不甜膩的散步甜點。',recommend:'🍩 必點：檸檬糖霜甜甜圈',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
       {name:'Kurtos Kalacs',area:'那霸・國際通',rating:4.5,type:'煙囪捲',desc:'沖繩少見的東歐傳統甜點煙囪捲，現烤出爐香氣四溢，外皮焦糖酥脆。',recommend:'🥐 必點：肉桂煙囪捲、冰淇淋煙囪捲',tape:'rgba(173,216,230,0.72)',angle:'-1deg'},
       {name:'Blue Seal 國際通店',area:'那霸・國際通',rating:4.2,type:'冰淇淋',desc:'「出生於美國，成長於沖繩」的標誌性冰淇淋，多種沖繩在地限定口味。',recommend:'🍦 必點：鹽金楚糕口味、紅芋口味',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
@@ -317,13 +315,14 @@ const DAYS = [
       {name:'壺屋陶器街 (Yachimun Street) 咖啡',area:'那霸・壺屋',rating:4.4,type:'質感咖啡',desc:'漫步在充滿傳統陶器的石板路上，這裡隱藏著許多使用精美陶器盛裝飲品的靜謐咖啡館。',recommend:'☕ 必點：手沖咖啡、沖繩陶器冰淇淋',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
       {name:'國際通屋台村',area:'那霸・國際通',rating:4.0,type:'屋台聚落',desc:'聚集了二十多間特色小店的露天美食街，氣氛熱絡，是夜晚喝酒吃宵夜的好去處。',recommend:'🏮 必點：串燒、沖繩Orion生啤酒',tape:'rgba(152,251,152,0.72)',angle:'1deg'},
       {name:'三笠食堂 (Mikasa)',area:'那霸・松山',rating:4.0,type:'24小時家庭餐廳',desc:'在地人愛去的老牌平價食堂，全天候營業，提供大份量且道地的沖繩家庭料理。',recommend:'🍛 必點：沖繩肉絲炒麵線、奶油烤魚',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
-      {name:'黑糖可麗露 ほうき星 (Houkiboshi)',area:'那霸・新都心',rating:4.4,type:'精緻甜點',desc:'沖繩第一家可麗露專賣店，使用多良間島黑糖製作，外觀極度精美，被譽為必買神級甜點。',recommend:'🍮 必點：沖繩黑糖可麗露綜合禮盒',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+      {name:'黑糖可麗露 ほうき星 (Houkiboshi)',area:'那霸・新都心',rating:4.4,type:'精緻甜點',desc:'沖繩第一家可麗露專賣店，使用多良間島黑糖製作，外觀極度精美，被譽為必買神級甜點。',recommend:'🍮 必點：沖繩黑糖可麗露綜合禮盒',tape:'rgba(135,206,235,0.72)',angle:'2deg'},
+      {name:'第一牧志公設市場',area:'那霸・國際通',rating:4.1,type:'海鮮市場',desc:'被稱為「沖繩的廚房」，一樓挑選新鮮海產，二樓代客料理，體驗在地市場的活力。',recommend:'🦞 必點：夜光貝生魚片、龍蝦二吃',tape:'rgba(176,224,230,0.72)',angle:'-2deg'}
     ]
   },
   {
     id:'day2', num:'02', date:'7月3日',
-    title:'漫步美國村',
-    subtitle:'早上悠閒出發，整天沉浸在充滿異國風情的美國村，享受海景咖啡、購物與絕美夕陽。',
+    title:'暢遊中北部與美國村',
+    subtitle:'早晨走訪安良波海灘與美國村，下午前往琉球村體驗文化並在星野BANTA CAFE看海，傍晚至Rycom血拚，最後以阿古豬火鍋收尾。',
     itinerary: [
       { time: '09:00', text: '那霸STRATA酒店 <span>(停留 00時10分)</span>', icon: '☀️', map: 'Hotel Strata Naha' },
       { time: '09:42', text: '安良波海灘 <span>(停留 00時30分)</span>', icon: '🏖️', map: '安良波海灘' },
@@ -333,39 +332,39 @@ const DAYS = [
       { time: '15:32', text: 'Hoshino Resorts BANTA CAFE <span>(停留 01時00分)</span>', icon: '☕', map: 'Hoshino Resorts BANTA CAFE' },
       { time: '17:12', text: 'AEON MALL Okinawa Rycom <span>(停留 01時30分)</span>', icon: '🛍️', map: 'AEON MALL Okinawa Rycom' },
       { time: '18:55', text: 'Itoya（阿古豬火鍋） <span>(停留 01時40分)</span>', icon: '🍲', map: 'Itoya' },
-      { time: '22:20', text: 'Churasun6okinawa(ちゅらさん6沖縄) <span>(停留 01時00分)</span>', icon: '🏠', map: 'Churasun6okinawa' }
+      { time: '22:20', text: 'Churasun6okinawa <span>(停留 01時00分)</span>', icon: '🏠', map: 'Churasun6okinawa' }
     ],
     places:[
       {name:'Taco Rice Cafe Kijimuna',area:'北谷・美國村',rating:4.4,type:'塔可飯',desc:'將沖繩代表美食「塔可飯」加上滑嫩歐姆蛋，創造出超人氣的「歐姆塔可飯」，美味度大升級！',recommend:'🍛 必點：酪梨歐姆塔可飯',tape:'rgba(135,206,235,0.72)',angle:'-2deg'},
       {name:'Zhyvago Coffee Works',area:'北谷・美國村',rating:4.6,type:'海景咖啡',desc:'美國村最具質感的工業風咖啡館。坐在窗邊或戶外，伴隨一杯好咖啡與無敵海景，極致放鬆。',recommend:'☕ 必點：冰拿鐵、手工巧克力軟餅乾',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
       {name:'Seaside Cafe Hanon',area:'北谷・美國村',rating:4.4,type:'海景鬆餅',desc:'以純白希臘風格打造的鬆餅專賣店，陽台座位直面大海，鬆餅口感蓬鬆綿密。',recommend:'🥞 必點：焦糖香蕉舒芙蕾鬆餅',tape:'rgba(176,224,230,0.72)',angle:'-1deg'},
-      {name:'Vongo & Anchor',area:'北谷・美國村',rating:4.5,type:'早午餐・咖啡',desc:'與Zhyvago同體系的質感愛店，提供豐盛的西式早午餐盤，室內裝潢充滿波特蘭風格。',recommend:'🥙 必點：美式豐盛早午餐盤、三明治',tape:'rgba(173,216,230,0.72)',angle:'3deg'},
       {name:'琉球之牛 (琉球の牛) 北谷店',area:'北谷・美國村',rating:4.4,type:'頂級燒肉',desc:'沖繩極具代表性的高級燒肉店！油花分佈完美的頂級縣產和牛，入口即化，建議提前訂位。',recommend:'🥩 必點：頂級縣產和牛套餐、炙燒和牛壽司',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
-      {name:'Blue Seal 北谷店',area:'北谷・美國村',rating:4.3,type:'美式冰淇淋',desc:'美國村旁的大型Blue Seal旗艦店，帶有濃厚的50年代美式復古風格，是拍照打卡聖地。',recommend:'🍦 必點：香草與紅芋綜合霜淇淋',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
-      {name:'Pork Tamago Onigiri 北谷店',area:'北谷・美國村',rating:4.3,type:'沖繩飯糰',desc:'如果在那霸沒吃到，美國村也有分店！就在海灘旁，買個飯糰坐在消波塊上看海最對味。',recommend:'🍙 必點：北谷店限定炸豬排飯糰',tape:'rgba(152,251,152,0.72)',angle:'-2deg'},
       {name:'Timeless Chocolate',area:'北谷・美國村',rating:4.5,type:'精品巧克力',desc:'沖繩第一家「Bean to Bar」巧克力專賣店，巧妙將沖繩黑糖與純可可結合，甜點極具水準。',recommend:'🍫 必點：黑糖單品巧克力、特濃熱可可',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
-      {name:'牛排屋 88 北谷店',area:'北谷・美國村',rating:4.1,type:'鐵板牛排',desc:'在充滿美軍文化底蘊的北谷吃一頓滋滋作響的鐵板牛排，是最接地氣的晚餐選擇。',recommend:'🥩 必點：大蒜奶油肋眼牛排',tape:'rgba(173,216,230,0.72)',angle:'-1deg'},
-      {name:'Chataro (茶太郎)',area:'北谷・美國村',rating:4.2,type:'沖繩海景洋食',desc:'位於海濱步道旁，氣氛輕鬆悠閒，提供豐富的洋食與熱帶調酒，夕陽時分景色無敵。',recommend:'🍹 必點：熱帶水果冰沙、炸魚薯條',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
-      {name:'Benson\'s Hotdog',area:'北谷・美國村',rating:4.3,type:'美式熱狗堡',desc:'使用百分之百全牛肉香腸的道地美式熱狗堡，淋上滿滿的起司與肉醬，邪惡度滿分。',recommend:'🌭 必點：加州起司肉醬熱狗堡',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
       {name:'The Calif Kitchen',area:'北谷・美國村',rating:4.4,type:'加州風海景餐廳',desc:'純白明亮的加州海岸風格裝潢，餐點顏值極高且美味，帶著小孩也非常適合前往的親子友善餐廳。',recommend:'🌯 必點：墨西哥捲餅、夏威夷蒜香蝦',tape:'rgba(152,251,152,0.72)',angle:'1deg'},
-      {name:'Hold By Hand Okinawa',area:'北谷・美國村',rating:4.3,type:'炸薯條與軟餅乾',desc:'專賣現炸美式粗薯條與巨大軟餅乾的小店，包裝極具設計感，適合邊走邊吃。',recommend:'🍟 必點：多種沾醬炸薯條、巧克力軟餅乾',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
       {name:'A&W 北谷店',area:'北谷',rating:4.1,type:'美式連鎖速食',desc:'沖繩獨有的美式速食品牌。最具特色的麥根沙士 (Root Beer) 在店內可以無限續杯！',recommend:'🍔 必點：A&W雙層起司堡、麥根沙士、圈圈薯',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
       {name:'浜屋沖繩麵 (Hamaya)',area:'北谷・宮城海岸',rating:4.4,type:'沖繩麵',desc:'距離美國村不遠的超人氣沖繩麵！特色是軟嫩到入口即化的豬軟骨，且高湯極致鮮甜。',recommend:'🍜 必點：浜屋豬軟骨沖繩麵 (浜屋そば)',tape:'rgba(135,206,235,0.72)',angle:'-1deg'},
-      {name:'Junglila Cafe and Restaurant',area:'北谷・美浜',rating:4.2,type:'網美帳篷咖啡',desc:'室內佈置成沙灘與帳篷的波西米亞風格，極度夢幻的打卡餐廳，坐在鞦韆上喝飲料超chill。',recommend:'🍹 必點：無酒精特調、水果聖代',tape:'rgba(175,238,238,0.72)',angle:'3deg'},
-      {name:'Red Lobster 沖繩北谷店',area:'北谷・美國村',rating:4.0,type:'海鮮美式餐廳',desc:'來自美國的知名海鮮連鎖餐廳，想在美國村大啖整隻龍蝦或生蠔的話，這裡是首選。',recommend:'🦞 必點：清蒸活龍蝦、海鮮大拼盤',tape:'rgba(152,251,152,0.72)',angle:'-3deg'},
-      {name:'Double Decker',area:'北谷・美國村',rating:4.1,type:'英倫風洋食',desc:'外觀是一台巨大的紅色雙層巴士！提供好吃的蛋包飯與調酒，氣氛非常獨特。',recommend:'🍛 必點：石垣牛漢堡排蛋包飯',tape:'rgba(173,216,230,0.72)',angle:'1deg'},
-      {name:'Coffee Casa',area:'北谷',rating:4.5,type:'手沖咖啡',desc:'遠離美國村核心鬧區的寧靜角落，店主對咖啡豆的烘焙極度講究，適合喜愛安靜品嚐咖啡的人。',recommend:'☕ 必點：自家烘焙單品手沖咖啡',tape:'rgba(176,224,230,0.72)',angle:'-2deg'},
-      {name:'神之麵 (Kami Soba)',area:'北谷',rating:4.2,type:'清淡系沖繩麵',desc:'不使用化學調味料，以鰹魚熬煮的清澄高湯聞名，吃完完全不會口乾舌燥。',recommend:'🍜 必點：特製神之沖繩麵',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+      {name:'Blue Ocean Steak',area:'北谷',rating:4.6,type:'鐵板牛排',desc:'評價極高的高級牛排館，提供高品質的和牛與龍蝦，用餐環境優雅，可欣賞美麗夕陽。',recommend:'🥩 必點：黑毛和牛沙朗、蒜香龍蝦',tape:'rgba(152,251,152,0.72)',angle:'-3deg'},
+      {name:'海人食堂',area:'讀谷村',rating:4.2,type:'漁港海鮮丼',desc:'位於讀谷村都屋漁港旁，提供產地直銷、便宜又大碗的新鮮生魚片丼飯與炸魚定食。',recommend:'🐟 必點：海人丼、炸近海魚定食',tape:'rgba(173,216,230,0.72)',angle:'2deg'},
+      {name:'Mintama (ミンタマ)',area:'讀谷村',rating:4.5,type:'義式居酒屋',desc:'隱藏在讀谷村的超人氣小店，將義式料理手法與沖繩在地食材完美結合，氣氛極佳。',recommend:'🍝 必點：墨魚義大利麵、各式窯烤披薩',tape:'rgba(176,224,230,0.72)',angle:'-2deg'},
+      {name:'星野 BANTA CAFE',area:'讀谷村',rating:4.4,type:'絕景海濱咖啡',desc:'日本國內最大規模的海景咖啡廳！依傍著自然岩石海岸而建，點杯飲料就能享受壯麗的無死角海景。',recommend:'🍹 必點：泡泡果凍汽水、豬肉蛋飯糰',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
+      {name:'御菓子御殿 讀谷本店',area:'讀谷村',rating:4.3,type:'紅芋塔首創',desc:'紅芋塔的發祥地！建築宛如小首里城，除了伴手禮，還能參觀生產線，並享用紅芋冰淇淋。',recommend:'🍠 必點：現做生紅芋塔、紅芋霜淇淋',tape:'rgba(152,251,152,0.72)',angle:'-1deg'},
+      {name:'Plowman`s Lunch Bakery',area:'北中城村',rating:4.5,type:'隱密山林早午餐',desc:'藏於北中城村山坡上的秘境麵包店，宛如走入吉卜力動畫，天然酵母麵包與濃湯極具水準。',recommend:'🥖 必點：豐盛早午餐盤、天然酵母麵包',tape:'rgba(175,238,238,0.72)',angle:'3deg'},
+      {name:'世界第二好吃的現烤冰淇淋菠蘿麵包',area:'AEON Rycom',rating:4.1,type:'人氣甜點',desc:'在永旺夢樂城逛累了的最佳點心。剛出爐熱呼呼的酥脆菠蘿麵包夾入冰涼香草冰淇淋。',recommend:'🍦 必點：香草冰淇淋菠蘿麵包',tape:'rgba(176,224,230,0.72)',angle:'-3deg'},
+      {name:'串家物語 (AEON Rycom)',area:'AEON Rycom',rating:4.0,type:'DIY炸串吃到飽',desc:'有趣的自助炸串體驗，自己挑選食材並裹粉下鍋油炸，非常適合家庭或朋友聚餐的歡樂餐廳。',recommend:'🍤 必點：各式肉類與蔬菜炸串',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
+      {name:'Roy\'s (AEON Rycom)',area:'AEON Rycom',rating:4.2,type:'夏威夷料理',desc:'來自夏威夷的知名餐廳，在沖繩Rycom也能吃到！結合日式與西式手法的精緻海島料理。',recommend:'🥩 必點：經典夏威夷風味牛排',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'Itoya (阿古豬火鍋)',area:'北中城村/沖繩市',rating:4.3,type:'阿古豬料理',desc:'主打沖繩特有品種「阿古豬(Agu豬)」，肉質鮮甜且油脂不膩口，做成涮涮鍋最能品嚐原味。',recommend:'🍲 必點：阿古豬特級涮涮鍋',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
+      {name:'Chataro (茶太郎)',area:'北谷・美國村',rating:4.2,type:'沖繩海景洋食',desc:'位於海濱步道旁，氣氛輕鬆悠閒，提供豐富的洋食與熱帶調酒，夕陽時分景色無敵。',recommend:'🍹 必點：熱帶水果冰沙、炸魚薯條',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
+      {name:'Junglila Cafe',area:'北谷・美浜',rating:4.2,type:'網美帳篷咖啡',desc:'室內佈置成沙灘與帳篷的波西米亞風格，極度夢幻的打卡餐廳，坐在鞦韆上喝飲料超chill。',recommend:'🍹 必點：無酒精特調、水果聖代',tape:'rgba(175,238,238,0.72)',angle:'1deg'}
     ]
   },
   {
     id:'day3', num:'03', date:'7月4日',
     title:'沖繩北部絕景與煙火',
-    subtitle:'一路向北！途經許田休息站，跨越古宇利大橋欣賞清澈見底的藍色海洋，晚間在海洋博公園欣賞夏日煙火。',
+    subtitle:'一路向北探險！經過許田休息站、古宇利島，下午漫遊美麗海水族館，晚間在海洋博公園欣賞夏日煙火。',
     itinerary: [
       { time: '08:00', text: '那霸STRATA酒店 <span>(停留 01時00分)</span>', icon: '🚗', map: 'Hotel Strata Naha' },
       { time: '10:04', text: '許田休息站 <span>(停留 00時40分)</span>', icon: '🏪', map: '道の駅 許田' },
-      { time: '11:24', text: '古宇利島 <span>(停留 01時30分)</span>', icon: '🏝️', map: '古宇利島' },
+      { time: '11:24', text: '古宇利島 <span>(停留 02時00分)</span>', icon: '🏝️', map: '古宇利島' },
       { time: '14:00', text: '沖繩美麗海水族館 <span>(停留 03時00分)</span>', icon: '🐬', map: '沖繩美麗海水族館' },
       { time: '19:00', text: '海洋博公園 20:00煙火 <span>(停留 02時00分)</span>', icon: '🎆', map: '海洋博公園' }
     ],
@@ -389,82 +388,84 @@ const DAYS = [
       {name:'A&W 名護店',area:'名護市',rating:4.1,type:'美式連鎖速食',desc:'前往北部必經之處的A&W，不僅可以稍作休息，也是體驗沖繩獨特美日融合飲食文化的站點。',recommend:'🍔 必點：辣醬熱狗堡、漂浮麥根沙士',tape:'rgba(152,251,152,0.72)',angle:'-3deg'},
       {name:'前田食堂 (名護店)',area:'名護市',rating:4.1,type:'牛肉豆芽麵',desc:'以「堆疊如山的黑胡椒牛肉炒豆芽」聞名的豪邁沖繩麵，胡椒香氣極度濃烈，份量驚人。',recommend:'🍜 必點：牛肉炒豆芽沖繩麵',tape:'rgba(176,224,230,0.72)',angle:'1deg'},
       {name:'Ringo Cafe',area:'本部町・瀨底島',rating:4.6,type:'法式馬卡龍',desc:'由法國甜點師傅經營的隱藏版小店，將沖繩在地食材（如香檸、伊江島蘭姆酒）融入法式馬卡龍中。',recommend:'🍪 必點：沖繩香檸馬卡龍、海鹽焦糖馬卡龍',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
-      {name:'哥倫比亞洋食 (Restaurant Colombia)',area:'名護市',rating:4.1,type:'復古洋食',desc:'充滿濃厚昭和風味的老牌洋食餐廳，彷彿時光倒流，招牌的特大炸蝦定食是許多在地人的回憶。',recommend:'🍤 必點：特大炸蝦定食、手工漢堡排',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+      {name:'哥倫比亞洋食',area:'名護市',rating:4.1,type:'復古洋食',desc:'充滿濃厚昭和風味的老牌洋食餐廳，彷彿時光倒流，招牌的特大炸蝦定食是許多在地人的回憶。',recommend:'🍤 必點：特大炸蝦定食、手工漢堡排',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
     ]
   },
   {
     id:'day4', num:'04', date:'7月5日',
-    title:'深入南城玉泉洞',
-    subtitle:'前往沖繩南部探險，見證壯麗的鐘乳石奇景「玉泉洞」，並享受南部的無敵海景與悠閒步調。',
+    title:'從浦添玩到南部',
+    subtitle:'早上前往PARCO CITY盡情購物並享用敘敘苑燒肉，下午探索壯麗的鐘乳石奇景「玉泉洞」。',
     itinerary: [
-      { time: '08:00', text: '那霸STRATA酒店 <span>(停留 01時00分)</span>', icon: '🚗', map: 'Hotel Strata Naha' },
-      { time: '09:16', text: 'SAN-A浦添西海岸 PARCO CITY <span>(停留 01時30分)</span>', icon: '🏬', map: 'SAN-A浦添西海岸 PARCO CITY' },
-      { time: '10:50', text: '敘敘苑 沖繩浦添PARCO CITY店 <span>(停留 02時00分)</span>', icon: '🥩', map: '敘敘苑 沖繩浦添PARCO CITY店' },
-      { time: '13:24', text: '玉泉洞 <span>(停留 02時30分)</span>', icon: '🦇', map: '玉泉洞' }
+      { time: '09:30', text: '那霸STRATA酒店 <span>(停留 00時00分)</span>', icon: '☀️', map: 'Hotel Strata Naha' },
+      { time: '09:46', text: 'SAN-A浦添西海岸 PARCO CITY <span>(停留 01時20分)</span>', icon: '🏬', map: 'SAN-A浦添西海岸 PARCO CITY' },
+      { time: '11:10', text: '敘敘苑 沖繩浦添PARCO CITY店 <span>(停留 02時00分)</span>', icon: '🥩', map: '敘敘苑 沖繩浦添PARCO CITY店' },
+      { time: '13:44', text: '玉泉洞 <span>(停留 02時10分)</span>', icon: '🦇', map: '玉泉洞' }
     ],
     places:[
-      {name:'Cafe Kurukuma (庫魯庫馬)',area:'南城市',rating:4.4,type:'海景泰式料理',desc:'南部最著名的無敵海景餐廳！位於高台上，能將太平洋盡收眼底，而且提供的泰式咖哩非常正宗美味。',recommend:'🍛 必點：庫魯庫馬特製綜合泰式咖哩',tape:'rgba(135,206,235,0.72)',angle:'-2deg'},
-      {name:'中本鮮魚天婦羅店',area:'南城・奧武島',rating:4.2,type:'沖繩天婦羅',desc:'過橋就能抵達的奧武島，這裡的炸天婦羅麵衣厚實鬆軟，價格極其便宜，買完坐在漁港邊吃最棒。',recommend:'🍤 必點：炸水雲(海髮菜)、炸花枝天婦羅',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
-      {name:'糸滿魚市場 (Itoman Fish Center)',area:'糸滿市',rating:4.3,type:'海鮮小吃',desc:'南部吃海鮮的聖地！各攤位販售一盤盤切好的生魚片、焗烤龍蝦與生蠔，買完直接在旁邊立吞。',recommend:'🍣 必點：鮮甜干貝串、焗烤明太子龍蝦',tape:'rgba(176,224,230,0.72)',angle:'-1deg'},
-      {name:'濱邊的茶屋 (浜辺の茶屋)',area:'南城市',rating:4.4,type:'沙灘咖啡',desc:'沖繩海景咖啡館的先驅。退潮時可以走到沙灘上，漲潮時海水就在窗戶正下方，氣氛無與倫比。',recommend:'🍰 必點：手作起司蛋糕、扶桑花茶',tape:'rgba(173,216,230,0.72)',angle:'3deg'},
-      {name:'山之茶屋 樂水',area:'南城市',rating:4.5,type:'山林蔬食',desc:'位於濱邊茶屋上方的山腰，被綠意環繞的木造建築，提供極致健康的沖繩在地野菜與素食料理。',recommend:'🥗 必點：樂水御膳 (在地野菜定食)',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
-      {name:'Cave Cafe (鐘乳石洞咖啡)',area:'南城市・玉泉洞對面',rating:4.3,type:'奇景咖啡',desc:'真的位於天然鐘乳石洞內的咖啡廳！由「Gangala之谷」經營，氣氛神祕沁涼，非常特殊的體驗。',recommend:'☕ 必點：35 COFFEE (珊瑚烘焙咖啡)',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
-      {name:'食堂Karika (食堂かりか)',area:'南城市・新原海灘',rating:4.4,type:'沙灘尼泊爾咖哩',desc:'踩在白沙灘上吃正宗尼泊爾咖哩！完全沒有建築物，只有沙灘上的陽傘與座位，真正的海島風情。',recommend:'🍛 必點：尼泊爾香料雞肉咖哩、拉西(Lassi)',tape:'rgba(152,251,152,0.72)',angle:'-2deg'},
-      {name:'沖繩麵 峰 (Mine)',area:'南城市',rating:4.6,type:'精緻沖繩麵',desc:'隱藏在南部的高評價名店。湯頭極為講究，自家製麵條Ｑ彈，擺盤精緻如法式料理，還能看到海景。',recommend:'🍜 必點：特製三層肉沖繩麵',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
-      {name:'大城天婦羅店',area:'南城・奧武島',rating:4.3,type:'沖繩天婦羅',desc:'奧武島上另一家超人氣天婦羅店。與中本齊名，特色是現點現炸，需要拿號碼牌等待，但絕對值得。',recommend:'🍤 必點：炸鮪魚、炸蔬菜球',tape:'rgba(173,216,230,0.72)',angle:'-1deg'},
-      {name:'Southern Beach Hotel 自助餐',area:'糸滿市',rating:4.2,type:'飯店Buffet',desc:'如果南部行程想安排一頓豐盛的大餐，這間海灘飯店的午餐自助餐提供豐富的海鮮與沖繩料理。',recommend:'🍽️ 必點：午餐時段百匯 Buffet',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
-      {name:'まんぷく食堂 (Manpuku)',area:'南城市',rating:4.1,type:'牛汁・羊肉湯',desc:'想挑戰最深度的沖繩在地滋味？這家食堂以濃郁的「山羊湯」和「牛汁」聞名，深受當地大叔喜愛。',recommend:'🍲 必點：沖繩牛汁定食 (不排斥羊肉可試山羊湯)',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
-      {name:'Cafe 風樹',area:'南城市',rating:4.4,type:'小木屋海景咖啡',desc:'位於半山腰的兩層樓原木打造小屋，二樓的視野開闊，可以一邊吹著海風一邊享用手作洋食。',recommend:'🍝 必點：漢堡排套餐、海鮮義大利麵',tape:'rgba(152,251,152,0.72)',angle:'1deg'},
-      {name:'琉球玻璃村 Cafe',area:'糸滿市',rating:4.1,type:'休閒輕食',desc:'在體驗完吹製玻璃後，可以在此稍作休息，餐點會使用美麗的琉球玻璃器皿盛裝，視覺效果佳。',recommend:'🍹 必點：熱帶水果漸層氣泡飲',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
-      {name:'糸滿農貿市場 (Umanchu市場)',area:'糸滿市',rating:4.3,type:'農產小吃',desc:'就在魚市場旁邊！這裡是買沖繩便宜水果（如芒果、鳳梨）和當地阿嬤手作熟食便當的最佳去處。',recommend:'🍍 必點：當季切片鳳梨、沖繩炸甜甜圈(Sata Andagi)',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
-      {name:'Cafe Yabusachi',area:'南城市',rating:4.2,type:'高台海景洋食',desc:'緊鄰百名伽藍的高台餐廳，大片落地窗外是無邊際的湛藍海景，餐點以法式及義式洋食為主。',recommend:'🥗 必點：沖繩縣產蔬菜法式鹹派',tape:'rgba(135,206,235,0.72)',angle:'-1deg'},
-      {name:'A&W 糸滿店',area:'糸滿市',rating:4.0,type:'美式連鎖速食',desc:'在南部行程結束要返回那霸前，如果肚子餓了，來份A&W的圈圈薯條解饞是最好的選擇。',recommend:'🍟 必點：香脆圈圈薯條 (Curly Fries)',tape:'rgba(175,238,238,0.72)',angle:'3deg'},
+      {name:'敘敘苑 (浦添PARCO CITY店)',area:'浦添市',rating:4.5,type:'頂級燒肉',desc:'日本全國知名的高級燒肉店，午間套餐價格親民且份量十足，面海的座位景色極佳。',recommend:'🥩 必點：超值午間燒肉套餐、海鮮煎餅',tape:'rgba(135,206,235,0.72)',angle:'-2deg'},
+      {name:'oHacorte (港川外人住宅本店)',area:'浦添市',rating:4.4,type:'水果塔專賣',desc:'隱身在美軍老眷村「港川外人住宅區」的超人氣甜點店，新鮮水果塔精緻如藝術品。',recommend:'🍰 必點：季節限定水果塔、綜合餅乾',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
+      {name:'黑糖可麗露 ほうき星 (港川本店)',area:'浦添市',rating:4.5,type:'精緻甜點',desc:'位於港川外人住宅，本店的氣氛更為復古可愛，黑糖可麗露外酥內軟，是必備的打卡甜點。',recommend:'🍮 必點：多良間島黑糖原味可麗露',tape:'rgba(176,224,230,0.72)',angle:'-1deg'},
+      {name:'ippudo 博多一風堂',area:'浦添 PARCO CITY',rating:4.1,type:'豚骨拉麵',desc:'在購物商場內想快速吃一碗熱騰騰的美食，享譽國際的一風堂豚骨拉麵是絕不出錯的選擇。',recommend:'🍜 必點：白丸元味、特製赤丸新味',tape:'rgba(173,216,230,0.72)',angle:'3deg'},
+      {name:'鶏そば屋 いしぐふー (Ishigufu)',area:'浦添市',rating:4.5,type:'雞白湯沖繩麵',desc:'有別於傳統豚骨高湯，這家以極度濃郁鮮甜的「雞白湯」底搭配特製麵條聞名，常大排長龍。',recommend:'🍜 必點：特製雞白湯沖繩麵',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'A&W 牧港店',area:'浦添市',rating:4.3,type:'美式連鎖速食',desc:'擁有巨大霓虹招牌與戶外噴水池的旗艦店，濃厚的美式復古汽車快餐文化氛圍。',recommend:'🍟 必點：莫札瑞拉起司漢堡、圈圈薯條',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
+      {name:'Cafe Kurukuma (庫魯庫馬)',area:'南城市',rating:4.4,type:'海景泰式料理',desc:'南部最著名的無敵海景餐廳！位於高台上，能將太平洋盡收眼底，泰式咖哩非常正宗美味。',recommend:'🍛 必點：庫魯庫馬特製綜合泰式咖哩',tape:'rgba(152,251,152,0.72)',angle:'-2deg'},
+      {name:'Cave Cafe (鐘乳石洞咖啡)',area:'南城市',rating:4.3,type:'奇景咖啡',desc:'玉泉洞對面的「Gangala之谷」入口，真的位於天然鐘乳石洞內的咖啡廳！氣氛神祕沁涼。',recommend:'☕ 必點：35 COFFEE (珊瑚烘焙咖啡)',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
+      {name:'中本鮮魚天婦羅店',area:'南城・奧武島',rating:4.2,type:'沖繩天婦羅',desc:'過橋就能抵達的奧武島，這裡的天婦羅麵衣厚實鬆軟，價格極其便宜，買完坐在漁港邊吃最棒。',recommend:'🍤 必點：炸水雲(海髮菜)、炸花枝',tape:'rgba(173,216,230,0.72)',angle:'-1deg'},
+      {name:'濱邊的茶屋 (浜辺の茶屋)',area:'南城市',rating:4.4,type:'沙灘咖啡',desc:'沖繩海景咖啡館的先驅。退潮時可以走到沙灘上，漲潮時海水就在窗戶正下方，氣氛無與倫比。',recommend:'🍰 必點：手作起司蛋糕、扶桑花茶',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
+      {name:'大城天婦羅店',area:'南城・奧武島',rating:4.3,type:'沖繩天婦羅',desc:'奧武島上另一家超人氣天婦羅店。與中本齊名，特色是現點現炸，需要拿號碼牌等待。',recommend:'🍤 必點：炸鮪魚、炸蔬菜球',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'山之茶屋 樂水',area:'南城市',rating:4.5,type:'山林蔬食',desc:'位於濱邊茶屋上方的山腰，被綠意環繞的木造建築，提供極致健康的沖繩在地野菜與素食料理。',recommend:'🥗 必點：樂水御膳 (在地野菜定食)',tape:'rgba(152,251,152,0.72)',angle:'1deg'},
+      {name:'食堂Karika (食堂かりか)',area:'南城市・新原海灘',rating:4.4,type:'沙灘尼泊爾咖哩',desc:'踩在白沙灘上吃正宗尼泊爾咖哩！完全沒有建築物，只有沙灘上的陽傘與座位，真正的海島風情。',recommend:'🍛 必點：尼泊爾香料雞肉咖哩、拉西',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'沖繩麵 峰 (Mine)',area:'南城市',rating:4.6,type:'精緻沖繩麵',desc:'隱藏在南部的高評價名店。湯頭極為講究，自家製麵條Ｑ彈，擺盤精緻如法式料理。',recommend:'🍜 必點：特製三層肉沖繩麵',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
+      {name:'まんぷく食堂 (Manpuku)',area:'南城市',rating:4.1,type:'牛汁・羊肉湯',desc:'想挑戰最深度的沖繩在地滋味？這家食堂以濃郁的「山羊湯」和「牛汁」聞名，深受當地大叔喜愛。',recommend:'🍲 必點：沖繩牛汁定食',tape:'rgba(135,206,235,0.72)',angle:'-1deg'},
+      {name:'Cafe 風樹',area:'南城市',rating:4.4,type:'小木屋海景咖啡',desc:'位於半山腰的兩層樓原木打造小屋，二樓的視野開闊，可以一邊吹著海風一邊享用手作洋食。',recommend:'🍝 必點：漢堡排套餐、海鮮義大利麵',tape:'rgba(175,238,238,0.72)',angle:'3deg'},
       {name:'天空茶屋 (Tenku no Chaya)',area:'南城市',rating:4.3,type:'秘境絕景',desc:'位置隱密，需要開過一小段陡坡。擁有無敵的視野可以俯瞰知念半島，是一處靜謐的放空秘境。',recommend:'🍵 必點：手作紅芋麻糬與熱茶',tape:'rgba(152,251,152,0.72)',angle:'-3deg'},
-      {name:'南部蕎麥麵 (南部そば)',area:'糸滿市',rating:4.4,type:'豬腳沖繩麵',desc:'以「滷豬腳沖繩麵 (Tebichi Soba)」稱霸南部的名店！豬腳滷得晶瑩剔透、入口即化，充滿膠質。',recommend:'🍜 必點：招牌特製滷豬腳沖繩麵',tape:'rgba(176,224,230,0.72)',angle:'1deg'},
-      {name:'与那原家',area:'与那原町',rating:4.2,type:'多口味沖繩麵',desc:'提供「清淡」與「濃厚」兩種湯頭選擇，甚至還有少見的雞白湯沖繩麵，滿足不同人的口味需求。',recommend:'🍜 必點：濃厚豚骨湯頭沖繩麵',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
-      {name:'Jef Yonabaru (与那原店)',area:'与那原町',rating:4.1,type:'沖繩限定速食',desc:'南部唯一的分店，除了苦瓜漢堡，這裡的炸雞也是在地人默默推薦的隱藏版美味。',recommend:'🍗 必點：Jef 鮮嫩多汁脆皮炸雞',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+      {name:'Cafe Yabusachi',area:'南城市',rating:4.2,type:'高台海景洋食',desc:'緊鄰百名伽藍的高台餐廳，大片落地窗外是無邊際的湛藍海景，餐點以法式及義式洋食為主。',recommend:'🥗 必點：沖繩縣產蔬菜法式鹹派',tape:'rgba(176,224,230,0.72)',angle:'1deg'},
+      {name:'糸滿魚市場',area:'糸滿市',rating:4.3,type:'海鮮小吃',desc:'南部吃海鮮的聖地！各攤位販售一盤盤切好的生魚片、焗烤龍蝦與生蠔，買完直接在旁邊立吞。',recommend:'🍣 必點：鮮甜干貝串、焗烤明太子龍蝦',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'南部蕎麥麵 (南部そば)',area:'糸滿市',rating:4.4,type:'豬腳沖繩麵',desc:'以「滷豬腳沖繩麵」稱霸南部的名店！豬腳滷得晶瑩剔透、入口即化，充滿膠質。',recommend:'🍜 必點：招牌特製滷豬腳沖繩麵',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
     ]
   },
   {
     id:'day5', num:'05', date:'7月6日',
-    title:'瀨長島與滿載而歸',
-    subtitle:'把握最後的時光，可安排前往離機場超近的「瀨長島」看飛機起降吃鬆餅，帶著美好回憶準備返台。',
+    title:'市區巡禮與賦歸',
+    subtitle:'早上走訪牧志市場品嚐沖繩飯糰與炸豬排，下午前往達磨寺與首里城感受歷史，最後前往那霸機場準備返台。',
     itinerary: [
-      { time: '08:00', text: '那霸STRATA酒店 <span>(停留 00時00分)</span>', icon: '📝', map: 'Hotel Strata Naha' },
-      { time: '08:23', text: '西來院 (達磨寺) <span>(停留 01時00分)</span>', icon: '⛩️', map: '西來院 達磨寺' },
-      { time: '09:32', text: '首里城 <span>(停留 01時00分)</span>', icon: '🏯', map: '首里城' },
-      { time: '11:14', text: '波上宮 <span>(停留 01時00分)</span>', icon: '⛩️', map: '波上宮' },
-      { time: '19:45', text: '那霸機場 <span>(停留 -19時-45分)</span>', icon: '🛫', map: '那霸機場' },
-      { time: '20:30', text: '高雄國際機場 <span>(停留 -20時-30分)</span>', icon: '🛬', map: '高雄國際機場' }
+      { time: '09:00', text: '那霸STRATA酒店 <span>(停留 00時30分)</span>', icon: '🏨', map: 'Hotel Strata Naha' },
+      { time: '09:45', text: '那霸市第一牧志公設市場 <span>(停留 01時10分)</span>', icon: '🦀', map: '那霸市第一牧志公設市場' },
+      { time: '10:56', text: 'Pork Tamago Onigiri Makishi Market <span>(停留 00時30分)</span>', icon: '🍙', map: 'Pork Tamago Onigiri Makishi Market' },
+      { time: '11:27', text: '沖縄とんかつ小やじ那覇店 <span>(停留 01時00分)</span>', icon: '🍱', map: '沖縄とんかつ小やじ那覇店' },
+      { time: '12:52', text: '西來院 (達磨寺) <span>(停留 00時40分)</span>', icon: '⛩️', map: '西來院 達磨寺' },
+      { time: '13:41', text: '首里城 <span>(停留 01時30分)</span>', icon: '🏯', map: '首里城' },
+      { time: '17:00', text: '那霸機場 <span>(停留 02時45分)</span>', icon: '🛫', map: '那霸機場' },
+      { time: '20:30', text: '高雄國際機場 <span>(停留 01時00分)</span>', icon: '🛬', map: '高雄國際機場' }
     ],
     places:[
-      {name:'幸福鬆餅 (幸せのパンケーキ)',area:'瀨長島',rating:4.4,type:'舒芙蕾鬆餅',desc:'瀨長島Umikaji Terrace最狂的排隊名店！極度鬆軟如雲朵般的舒芙蕾鬆餅，搭配無敵海景超療癒。',recommend:'🥞 必點：原味幸福厚鬆餅、季節限定水果口味',tape:'rgba(135,206,235,0.72)',angle:'-2deg'},
-      {name:'Kame Andagi (瀨長島店)',area:'瀨長島',rating:4.4,type:'沖繩炸沙翁',desc:'沖繩傳統甜點「開口笑 (沙翁)」，這裡現炸出爐後還可以夾入各種口味的冰淇淋，外熱內冷超級好吃。',recommend:'🍩 必點：紅芋冰淇淋夾心沙翁',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
-      {name:'Eightman\'s Sea Burg',area:'瀨長島',rating:4.3,type:'海鮮漢堡',desc:'使用沖繩近海捕獲的新鮮魚類製作的特色「魚漢堡」，跳脫傳統牛肉漢堡的框架，清爽美味。',recommend:'🍔 必點：原創沖繩鮮魚漢堡',tape:'rgba(176,224,230,0.72)',angle:'-1deg'},
-      {name:'瀨長島 47 STORE',area:'瀨長島',rating:4.2,type:'伴手禮與點心',desc:'集合了日本47都道府縣的精選商品，除了好買，店內的熱食小點也很適合買來配夕陽。',recommend:'🛍️ 必點：各類沖繩限定特色伴手禮',tape:'rgba(173,216,230,0.72)',angle:'3deg'},
-      {name:'豬肉蛋飯糰 那霸機場店',area:'那霸機場 國內線',rating:4.3,type:'沖繩飯糰',desc:'上飛機前最後的回味！國內線航廈一樓的超人氣排隊飯糰，方便帶上飛機或在候機時享用。',recommend:'🍙 必點：明太子美乃滋豬肉蛋飯糰',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
-      {name:'A&W 那霸機場店',area:'那霸機場 國內線',rating:4.2,type:'美式連鎖速食',desc:'位於機場國內線3樓。離開沖繩前，別忘了再來一杯冰涼的麥根沙士和好吃的圈圈薯條！',recommend:'🍔 必點：經典起司漢堡套餐、麥根沙士',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
-      {name:'Royal Coffee Shop',area:'那霸機場 國際線',rating:4.0,type:'機場洋食',desc:'在國際線候機時的好去處，提供水準穩定的日式洋食（如咖哩飯、蛋包飯）與咖啡。',recommend:'🍛 必點：經典牛肉黑咖哩飯',tape:'rgba(152,251,152,0.72)',angle:'-2deg'},
-      {name:'琉球村 那霸機場店',area:'那霸機場 國內線',rating:4.1,type:'沖繩麵',desc:'如果在市區還吃不夠沖繩麵，機場內的這家店能迅速滿足你的渴望，出餐快且味道道地。',recommend:'🍜 必點：綜合三層肉沖繩麵',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
-      {name:'Jimmy\'s 那霸機場店',area:'那霸機場 國內線',rating:4.3,type:'美式烘焙超市',desc:'沖繩老牌的美式超市品牌。他們的大蒜麵包與美式磅蛋糕是非常受內行人歡迎的伴手禮。',recommend:'🍞 必點：香濃大蒜抹醬麵包、蘋果派',tape:'rgba(173,216,230,0.72)',angle:'-1deg'},
-      {name:'Fukugiya 那霸機場店',area:'那霸機場 國內線',rating:4.3,type:'年輪蛋糕',desc:'國際通的名店在機場也有專櫃！買一盒當天現烤的黑糖年輪蛋糕帶回台灣，是最棒的結尾。',recommend:'🍰 必點：黑糖年輪蛋糕 (帶回台灣依舊美味)',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
-      {name:'御菓子御殿 機場店',area:'那霸機場',rating:4.5,type:'紅芋塔',desc:'沖繩無人不知的代表性伴手禮。除了經典的紅芋塔，生紅芋塔（需冷藏）更是隱藏版美味。',recommend:'🍠 必點：經典紅芋塔、生紅芋塔',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
-      {name:'Royce\' 石垣島 (機場免稅店)',area:'那霸機場 國際線',rating:4.6,type:'巧克力',desc:'只有在沖繩才買得到的 Royce\' 限定版！融合了石垣島海鹽、黑糖與沖繩鳳梨的特殊風味巧克力。',recommend:'🍫 必點：石垣島海鹽生巧克力、黑糖巧克力',tape:'rgba(152,251,152,0.72)',angle:'1deg'},
-      {name:'Sora Terrace',area:'那霸機場 國際線',rating:4.0,type:'候機輕食',desc:'過完安檢後的國際線候機室輕食吧，可以在這裡喝杯沖繩Orion生啤酒，看著飛機等待登機。',recommend:'🍺 必點：Orion 生啤酒、簡單熱狗堡',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
-      {name:'風月 (Fugetsu)',area:'那霸機場 國內線',rating:4.1,type:'日式定食',desc:'想在機場安靜地吃一頓日式炸豬排或蕎麥麵，這裡是不錯的選擇，座位寬敞舒適。',recommend:'🍱 必點：炸豬排定食',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
-      {name:'大東壽司 機場便當版',area:'那霸機場 販賣部',rating:4.3,type:'機場鐵路便當',desc:'常被秒殺的夢幻空弁（機場便當）！由大東壽司特製的醬油醃漬魚肉握壽司，帶上飛機吃超幸福。',recommend:'🍣 必點：大東壽司便當 (看到必搶)',tape:'rgba(135,206,235,0.72)',angle:'-1deg'},
-      {name:'Coralway',area:'那霸機場 國內線',rating:4.2,type:'精選伴手禮',desc:'JAL經營的伴手禮店，可以買到許多沖繩限定的文創小物、零食，甚至還有石垣島辣油。',recommend:'🌶️ 必點：邊銀食堂石垣島辣油',tape:'rgba(175,238,238,0.72)',angle:'3deg'},
-      {name:'Blue Seal 那霸機場店',area:'那霸機場 國內線',rating:4.2,type:'冰淇淋',desc:'登機前的最後一支冰淇淋！回味沖繩夏天的味道，劃下完美的句點。',recommend:'🍦 必點：沖繩田芋起司蛋糕口味',tape:'rgba(152,251,152,0.72)',angle:'-3deg'},
-      {name:'琉球新麵 通堂 本店',area:'那霸・小祿',rating:4.2,type:'男人麵女人麵',desc:'距離機場非常近的拉麵名店，如果時間充裕，可以來這裡吃碗知名的「男人麵(豚骨)」或「女人麵(鹽味)」。',recommend:'🍜 必點：女人麵 (清爽鹽味雞湯拉麵)',tape:'rgba(176,224,230,0.72)',angle:'1deg'},
-      {name:'首里蕎麥麵 (Shuri Soba)',area:'那霸・首里',rating:4.4,type:'手打沖繩麵',desc:'(若早上有空前往首里城) 每日限量、極度受歡迎的手打沖繩麵，麵條偏硬極有嚼勁，高湯極清澈。',recommend:'🍜 必點：限量首里沖繩麵、沖繩炊飯',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
-      {name:'Okinawa Soba EIBUN',area:'那霸・壺屋',rating:4.5,type:'新派沖繩麵',desc:'(若早上還在那霸市區) 將傳統沖繩麵加入香菜、特製辣油等創新元素的超人氣文青麵店。',recommend:'🍜 必點：特製無湯香菜拌麵 (BUMP)',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
+      {name:'豬肉蛋飯糰 牧志市場本店',area:'那霸・牧志',rating:4.4,type:'沖繩飯糰',desc:'從牧志市場開始的一天！最經典的排隊名店，熱騰騰的午餐肉與厚煎蛋完美結合。',recommend:'🍙 必點：炸蝦豬肉蛋飯糰',tape:'rgba(135,206,235,0.72)',angle:'-2deg'},
+      {name:'沖縄とんかつ小やじ',area:'那霸・牧志',rating:4.5,type:'日式炸豬排',desc:'隱身在那霸市區的高評價炸豬排專賣店，肉質軟嫩多汁，麵衣金黃酥脆，是在地人的愛店。',recommend:'🍱 必點：特選里肌炸豬排定食',tape:'rgba(152,251,152,0.72)',angle:'2deg'},
+      {name:'第一牧志公設市場 2樓食堂',area:'那霸・牧志',rating:4.1,type:'海鮮代客料理',desc:'逛完一樓市場挑選生猛海鮮後，直接拿到二樓的食堂代客烹調，感受最接地氣的市場文化。',recommend:'🦞 必點：夜光貝、沖繩近海鮮魚',tape:'rgba(176,224,230,0.72)',angle:'-1deg'},
+      {name:'首里蕎麥麵 (Shuri Soba)',area:'那霸・首里',rating:4.4,type:'手打沖繩麵',desc:'首里城周邊極度受歡迎的手打沖繩麵，每日限量賣完為止！麵條偏硬極有嚼勁，高湯極清澈。',recommend:'🍜 必點：限量首里沖繩麵、沖繩炊飯',tape:'rgba(173,216,230,0.72)',angle:'3deg'},
+      {name:'琉球茶坊 (Ashibiuna)',area:'那霸・首里',rating:4.3,type:'琉球庭園料理',desc:'由琉球傳統古民家改建，坐在日式緣廊面對著枯山水庭園吃著傳統料理，非常有氣氛。',recommend:'🥢 必點：墨魚汁炒麵、琉球定食',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'山城饅頭',area:'那霸・首里',rating:4.2,type:'百年傳統點心',desc:'首里地區擁有超過百年歷史的傳統老字號，外皮薄透Q彈，包裹著甜而不膩的紅豆餡。',recommend:'🍡 必點：現蒸山城饅頭',tape:'rgba(135,206,235,0.72)',angle:'1deg'},
+      {name:'Ayagu 食堂 (あやぐ食堂)',area:'那霸・首里',rating:4.3,type:'在地大份量食堂',desc:'首里在地人最愛的平價食堂，份量大到驚人，充滿濃濃的昭和家庭感。',recommend:'🍛 必點：沖繩炸苦瓜定食、炸魚排定食',tape:'rgba(152,251,152,0.72)',angle:'-2deg'},
+      {name:'豬肉蛋飯糰 那霸機場店',area:'那霸機場 國內線',rating:4.3,type:'沖繩飯糰',desc:'上飛機前最後的回味！國內線航廈一樓的超人氣排隊飯糰，方便帶上飛機或在候機時享用。',recommend:'🍙 必點：明太子美乃滋豬肉蛋飯糰',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
+      {name:'A&W 那霸機場店',area:'那霸機場 國內線',rating:4.2,type:'美式連鎖速食',desc:'位於機場國內線3樓。離開沖繩前，別忘了再來一杯冰涼的麥根沙士和好吃的圈圈薯條！',recommend:'🍔 必點：經典起司漢堡套餐、麥根沙士',tape:'rgba(173,216,230,0.72)',angle:'-1deg'},
+      {name:'御菓子御殿 機場店',area:'那霸機場',rating:4.5,type:'紅芋塔',desc:'沖繩無人不知的代表性伴手禮。除了經典的紅芋塔，生紅芋塔（需冷藏）更是隱藏版美味。',recommend:'🍠 必點：經典紅芋塔、生紅芋塔',tape:'rgba(135,206,235,0.72)',angle:'3deg'},
+      {name:'Royce\' 石垣島 (機場免稅店)',area:'那霸機場 國際線',rating:4.6,type:'巧克力',desc:'只有在沖繩才買得到的 Royce\' 限定版！融合了石垣島海鹽、黑糖與沖繩鳳梨的特殊風味巧克力。',recommend:'🍫 必點：石垣島海鹽生巧克力、黑糖巧克力',tape:'rgba(175,238,238,0.72)',angle:'-3deg'},
+      {name:'Fukugiya 那霸機場店',area:'那霸機場 國內線',rating:4.3,type:'年輪蛋糕',desc:'國際通的名店在機場也有專櫃！買一盒當天現烤的黑糖年輪蛋糕帶回台灣，是最棒的結尾。',recommend:'🍰 必點：黑糖年輪蛋糕 (帶回台灣依舊美味)',tape:'rgba(152,251,152,0.72)',angle:'1deg'},
+      {name:'大東壽司 機場便當版',area:'那霸機場 販賣部',rating:4.3,type:'機場鐵路便當',desc:'常被秒殺的夢幻空弁（機場便當）！由大東壽司特製的醬油醃漬魚肉握壽司，帶上飛機吃超幸福。',recommend:'🍣 必點：大東壽司便當 (看到必搶)',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'Jimmy\'s 那霸機場店',area:'那霸機場 國內線',rating:4.3,type:'美式烘焙超市',desc:'沖繩老牌的美式超市品牌。他們的大蒜麵包與美式磅蛋糕是非常受內行人歡迎的伴手禮。',recommend:'🍞 必點：香濃大蒜抹醬麵包、蘋果派',tape:'rgba(176,224,230,0.72)',angle:'2deg'},
+      {name:'琉球村 那霸機場店',area:'那霸機場 國內線',rating:4.1,type:'沖繩麵',desc:'如果在市區還吃不夠沖繩麵，機場內的這家店能迅速滿足你的渴望，出餐快且味道道地。',recommend:'🍜 必點：綜合三層肉沖繩麵',tape:'rgba(135,206,235,0.72)',angle:'-1deg'},
+      {name:'Royal Coffee Shop',area:'那霸機場 國際線',rating:4.0,type:'機場洋食',desc:'在國際線候機時的好去處，提供水準穩定的日式洋食（如咖哩飯、蛋包飯）與咖啡。',recommend:'🍛 必點：經典牛肉黑咖哩飯',tape:'rgba(175,238,238,0.72)',angle:'3deg'},
+      {name:'Sora Terrace',area:'那霸機場 國際線',rating:4.0,type:'候機輕食',desc:'過完安檢後的國際線候機室輕食吧，可以在這裡喝杯沖繩Orion生啤酒，看著飛機等待登機。',recommend:'🍺 必點：Orion 生啤酒、簡單熱狗堡',tape:'rgba(152,251,152,0.72)',angle:'-3deg'},
+      {name:'風月 (Fugetsu)',area:'那霸機場 國內線',rating:4.1,type:'日式定食',desc:'想在機場安靜地吃一頓日式炸豬排或蕎麥麵，這裡是不錯的選擇，座位寬敞舒適。',recommend:'🍱 必點：炸豬排定食',tape:'rgba(176,224,230,0.72)',angle:'1deg'},
+      {name:'Coralway',area:'那霸機場 國內線',rating:4.2,type:'精選伴手禮',desc:'JAL經營的伴手禮店，可以買到許多沖繩限定的文創小物、零食，甚至還有石垣島辣油。',recommend:'🌶️ 必點：邊銀食堂石垣島辣油',tape:'rgba(173,216,230,0.72)',angle:'-2deg'},
+      {name:'Blue Seal 那霸機場店',area:'那霸機場 國內線',rating:4.2,type:'冰淇淋',desc:'登機前的最後一支冰淇淋！回味沖繩夏天的味道，劃下完美的句點。',recommend:'🍦 必點：沖繩田芋起司蛋糕口味',tape:'rgba(135,206,235,0.72)',angle:'2deg'}
     ]
   }
 ];
 
 /* ═══ HELPERS ═══ */
 function buildMapUrl(q) {
-  return `https://www.google.com/maps/search/?api=1&query=$${encodeURIComponent(q)}`;
+  return `https://google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 }
 
 /* ═══ RENDER ═══ */
