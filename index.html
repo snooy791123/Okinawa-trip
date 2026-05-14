@@ -519,6 +519,12 @@ tailwind.config = {
   <button class="nav-btn mobile-btn snap-center flex-shrink-0 flex items-center justify-center gap-2 px-5 py-3 rounded-full text-ink/50 font-bold transition-all" data-target="view-tools">
     <i class="fas fa-toolbox text-lg"></i> <span class="text-sm tracking-wide">百寶箱</span>
   </button>
+  <button class="nav-btn mobile-btn snap-center flex-shrink-0 flex items-center justify-center gap-2 px-5 py-3 rounded-full text-ink/50 font-bold transition-all" data-target="view-wishlist">
+    <i class="fas fa-heart text-coral text-lg"></i> <span class="text-sm tracking-wide">收藏</span>
+  </button>
+  <button class="nav-btn mobile-btn snap-center flex-shrink-0 flex items-center justify-center gap-2 px-5 py-3 rounded-full text-ink/50 font-bold transition-all" data-target="view-phrases">
+    <i class="fas fa-language text-sky text-lg"></i> <span class="text-sm tracking-wide">日文</span>
+  </button>
   
   <div class="w-px h-8 bg-ink/10 flex-shrink-0 mx-1"></div>
   <div id="mobile-day-btns" class="flex gap-2"></div>
@@ -1302,6 +1308,17 @@ window.handleSearch = (val) => {
     }
     return;
   }
+  // Immediately switch to search view on mobile or desktop if not already there
+  if(state.currentView !== 'view-search') {
+      // Deactivate other nav buttons
+      document.querySelectorAll('.sidebar-btn, .mobile-btn').forEach(b => {
+        b.classList.remove('active-sidebar', 'active-mobile');
+        if(b.classList.contains('sidebar-btn')) b.classList.add('text-ink/60');
+        if(b.classList.contains('mobile-btn')) b.classList.add('text-ink/50');
+      });
+      switchView('view-search');
+  }
+  
   searchTimeout = setTimeout(() => performSearch(val.trim()), 300);
 };
 
